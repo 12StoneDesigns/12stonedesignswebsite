@@ -7,66 +7,103 @@ const Privacy = () => {
         <h1 className="text-4xl font-bold text-white mb-8">Privacy Policy</h1>
         
         <div className="prose prose-invert max-w-none">
-          <p className="text-gray-300 mb-6">Last updated: January 6, 2025</p>
+          <p className="text-gray-300 mb-6">Last updated: January 30, 2025</p>
           
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-white mb-4">1. Information We Collect</h2>
             <p className="text-gray-300">
-              This Privacy Policy describes how 12Stone Designs collects, uses, and shares your personal information when you use our services.
+              12Stone Designs ("we", "us", "our") is committed to protecting your privacy. This Privacy Policy describes how we collect, use, and share your personal information when you use our services.
             </p>
-            <p className="text-gray-300">
-              12Stone Designs may collect personal information that you provide directly to us, including but not limited to your name, email address, and any other information you choose to provide.
+            <p className="text-gray-300 mt-4">
+              We collect personal information that you provide directly to us, including:
             </p>
             <ul className="list-disc pl-6 text-gray-300 mt-2">
-              <li>Create an account</li>
-              <li>Use our applications</li>
-              <li>Contact us for support</li>
-              <li>Subscribe to our newsletter</li>
+              <li>Name and contact information</li>
+              <li>Email address</li>
+              <li>Phone number</li>
+              <li>Business information</li>
+              <li>IP address and device information</li>
+              <li>Cookies and usage data</li>
             </ul>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-white mb-4">2. How We Use Your Information</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">2. Legal Basis for Processing (GDPR)</h2>
             <p className="text-gray-300">
-              We use the information we collect to:
+              Under the EU General Data Protection Regulation (GDPR), we process your personal data based on:
             </p>
             <ul className="list-disc pl-6 text-gray-300 mt-2">
-              <li>Provide and maintain our services</li>
-              <li>Improve user experience</li>
-              <li>Send important updates and notifications</li>
-              <li>Analyze usage patterns and optimize performance</li>
+              <li>Your consent</li>
+              <li>Performance of a contract</li>
+              <li>Legal obligations</li>
+              <li>Legitimate business interests</li>
             </ul>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-white mb-4">3. Data Security</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">3. Your Rights Under GDPR</h2>
             <p className="text-gray-300">
-              12Stone Designs uses industry-standard security measures to protect your personal information from unauthorized access, disclosure, or destruction.
-            </p>
-          </section>
-
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-white mb-4">4. Your Rights</h2>
-            <p className="text-gray-300">
-              You have the right to:
+              If you are in the European Economic Area (EEA), you have these rights:
             </p>
             <ul className="list-disc pl-6 text-gray-300 mt-2">
-              <li>Access your personal data</li>
-              <li>Correct inaccurate data</li>
-              <li>Request deletion of your data</li>
-              <li>Object to data processing</li>
-              <li>Data portability</li>
+              <li>Right to access your personal data</li>
+              <li>Right to rectification of inaccurate data</li>
+              <li>Right to erasure ("right to be forgotten")</li>
+              <li>Right to data portability</li>
+              <li>Right to restrict processing</li>
+              <li>Right to object to processing</li>
+              <li>Right to withdraw consent</li>
             </ul>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-white mb-4">5. Contact Us</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">4. International Data Transfers</h2>
             <p className="text-gray-300">
-              If you have any questions about this Privacy Policy, please contact us at:
-              <br />
-              <a href="mailto:contact@12stonedesigns.com" className="text-neon-green hover:underline">
-                contact@12stonedesigns.com
-              </a>
+              We may transfer your personal data to countries outside the EEA. When we do, we ensure appropriate safeguards are in place through:
+            </p>
+            <ul className="list-disc pl-6 text-gray-300 mt-2">
+              <li>Standard contractual clauses</li>
+              <li>Privacy Shield certification</li>
+              <li>Adequacy decisions by the European Commission</li>
+            </ul>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold text-white mb-4">5. Data Security</h2>
+            <p className="text-gray-300">
+              We implement appropriate technical and organizational measures to protect your personal data, including:
+            </p>
+            <ul className="list-disc pl-6 text-gray-300 mt-2">
+              <li>SSL/TLS encryption</li>
+              <li>Access controls</li>
+              <li>Regular security assessments</li>
+              <li>Employee training</li>
+            </ul>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold text-white mb-4">6. Data Retention</h2>
+            <p className="text-gray-300">
+              We retain your personal data only for as long as necessary to fulfill the purposes for which it was collected, including legal and compliance obligations.
+            </p>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold text-white mb-4">7. Contact Information</h2>
+            <p className="text-gray-300">
+              For any privacy-related questions or to exercise your rights, contact our Data Protection Officer:
+            </p>
+            <div className="text-gray-300 mt-4">
+              <p>Email: privacy@12stonedesigns.com</p>
+              <p>Phone: (479) 407-9839</p>
+              <p>Address: Bella Vista, AR</p>
+            </div>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold text-white mb-4">8. Updates to This Policy</h2>
+            <p className="text-gray-300">
+              We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
             </p>
           </section>
         </div>

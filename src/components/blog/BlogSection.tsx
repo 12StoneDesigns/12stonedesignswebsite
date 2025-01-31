@@ -3,43 +3,43 @@ import BlogCard from './BlogCard';
 
 const blogPosts = [
   {
-    "title": "Rebranding: How to Refresh Your Identity Without Losing Your Core",
-    "excerpt": "Rebranding: How to Refresh Your Identity Without Losing Your Core\n\nIn today's competitive marketplace, businesses must evolve to stay relevant. This o...",
-    "date": "Jan 28, 2025",
+    "title": "Rebranding_ How to Refresh Your Identity Without Losing Your Core",
+    "excerpt": "Rebranding: How to Refresh Your Identity Without Losing Your Core\n\nIn today’s competitive marketplace, businesses must evolve to stay relevant. This o...",
+    "date": "Jan 30, 2025",
     "readTime": "5 min read",
-    "imageUrl": "https://picsum.photos/seed/rebranding123/800/600",
+    "imageUrl": "https://source.unsplash.com/featured/?rebranding,strategy&sig=101",
     "category": "Branding"
   },
   {
-    "title": "The Art and Strategy of Web Design: Creating a Digital Presence That Lasts",
+    "title": "The Art and Strategy of Web Design_ Creating a Digital Presence That Lasts",
     "excerpt": "The Art and Strategy of Web Design: Creating a Digital Presence That Lasts\n\nIn today's digital-first world, your website is more than just an online b...",
-    "date": "Jan 29, 2025",
+    "date": "Jan 30, 2025",
     "readTime": "5 min read",
-    "imageUrl": "https://picsum.photos/seed/webdesign456/800/600",
+    "imageUrl": "https://source.unsplash.com/featured/?webdesign,computer&sig=202",
     "category": "Web Design"
   },
   {
-    "title": "The Power of Purpose-Driven Design: Building Brands That Last",
-    "excerpt": "The Power of Purpose-Driven Design: Building Brands That Last\n\nIn today's competitive marketplace, standing out is no longer just about being differen...",
-    "date": "Jan 28, 2025",
+    "title": "The Power of Purpose-Driven Design_ Building Brands That Last",
+    "excerpt": "The Power of Purpose-Driven Design: Building Brands That Last\n\nIn today’s competitive marketplace, standing out is no longer just about being differen...",
+    "date": "Jan 30, 2025",
     "readTime": "5 min read",
-    "imageUrl": "https://picsum.photos/seed/purpose789/800/600",
+    "imageUrl": "https://source.unsplash.com/featured/?purpose,creative&sig=303",
     "category": "Branding"
   },
   {
-    "title": "Timeless Branding: Designing for Today, Building for the Future",
-    "excerpt": "Timeless Branding: Designing for Today, Building for the Future\n\nIn a world where trends rise and fall at lightning speed, it's easy to get caught up...",
-    "date": "Jan 28, 2025",
+    "title": "Timeless Branding_ Designing for Today, Building for the Future",
+    "excerpt": "Timeless Branding: Designing for Today, Building for the Future\n\nIn a world where trends rise and fall at lightning speed, it’s easy to get caught up...",
+    "date": "Jan 30, 2025",
     "readTime": "5 min read",
-    "imageUrl": "https://picsum.photos/seed/timeless321/800/600",
+    "imageUrl": "https://source.unsplash.com/featured/?timeless,modern&sig=404",
     "category": "Branding"
   },
   {
     "title": "Why a Strong Brand Foundation is Key to Long-Term Success",
-    "excerpt": "Why a Strong Brand Foundation is Key to Long-Term Success\n\nIn the fast-paced, ever-changing world of business, trends come and go. It's easy to be swe...",
-    "date": "Jan 28, 2025",
+    "excerpt": "Why a Strong Brand Foundation is Key to Long-Term Success\n\nIn the fast-paced, ever-changing world of business, trends come and go. It’s easy to be swe...",
+    "date": "Jan 30, 2025",
     "readTime": "5 min read",
-    "imageUrl": "https://picsum.photos/seed/foundation654/800/600",
+    "imageUrl": "https://source.unsplash.com/featured/?foundation,success&sig=505",
     "category": "Branding"
   }
 ];

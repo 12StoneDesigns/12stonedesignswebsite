@@ -15,18 +15,37 @@ const Layout = () => {
 
   return (
     <div className="min-h-screen text-white relative">
+      {/* Skip to main content link for keyboard users */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-black focus:text-neon-green"
+      >
+        Skip to main content
+      </a>
+
       <div 
         className="fixed inset-0 bg-cover bg-center bg-no-repeat bg-fixed -z-10"
         style={{ 
           backgroundImage: `url(/images/hero/A_modern_and_creative_workspace_represent.jpg)`,
           backgroundAttachment: 'fixed'
         }}
+        role="presentation"
+        aria-hidden="true"
       />
-      <div className="fixed inset-0 bg-black/70 backdrop-blur-[2px] -z-10" />
-      <Navigation />
-      <div className="pt-16">
+      <div 
+        className="fixed inset-0 bg-black/70 backdrop-blur-[2px] -z-10" 
+        role="presentation"
+        aria-hidden="true"
+      />
+      
+      <header role="banner">
+        <Navigation />
+      </header>
+
+      <main id="main-content" className="pt-16" role="main">
         <Outlet />
-      </div>
+      </main>
+
       <Footer />
       <CookieBanner />
     </div>
