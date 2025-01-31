@@ -23,10 +23,10 @@ const ContactSection = () => {
           <p className="mt-4 text-xl text-gray-300">
             Have a question or want to work together? Feel free to contact us at{' '}
             <a 
-              href="mailto:admin@12stonedesigns.com" 
+              href="mailto:contact@12stonedesigns.com" 
               className="text-neon-green hover:text-neon-blue transition-colors"
             >
-              admin@12stonedesigns.com
+              contact@12stonedesigns.com
             </a>
           </p>
         </div>
@@ -78,10 +78,10 @@ const ContactSection = () => {
                   <div>
                     <p className="text-sm text-gray-400">Email</p>
                     <a 
-                      href="mailto:admin@12stonedesigns.com" 
+                      href="mailto:contact@12stonedesigns.com" 
                       className="text-white hover:text-neon-green transition-colors"
                     >
-                      admin@12stonedesigns.com
+                      contact@12stonedesigns.com
                     </a>
                   </div>
                 </div>

@@ -19,17 +19,17 @@ const Contact: React.FC = () => {
     {
       icon: <Mail className="w-6 h-6 text-[#00F3FF]" />,
       title: 'Email',
-      content: 'info@12stonedesigns.com'
+      content: 'contact@12stonedesigns.com'
     },
     {
       icon: <Phone className="w-6 h-6 text-[#00F3FF]" />,
       title: 'Phone',
-      content: '+1 (555) 123-4567'
+      content: '(479) 407-9839'
     },
     {
       icon: <MapPin className="w-6 h-6 text-[#00F3FF]" />,
       title: 'Location',
-      content: 'San Francisco, CA'
+      content: 'Bella Vista, AR'
     }
   ];
 
