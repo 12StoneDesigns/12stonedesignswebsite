@@ -1,8 +1,6 @@
 import React from 'react';
 import { Code2, Users, Lightbulb, Award, Workflow, Laptop } from 'lucide-react';
 import TechStack from './TechStack';
-import ClientTestimonials from './ClientTestimonials';
-import CaseStudies from './CaseStudies';
 
 const WhyChooseUsSection = () => {
   const uniqueApproach = [
@@ -143,12 +141,6 @@ const WhyChooseUsSection = () => {
 
         {/* Tech Stack Section */}
         <TechStack />
-
-        {/* Case Studies Section */}
-        <CaseStudies />
-
-        {/* Client Testimonials Section */}
-        <ClientTestimonials />
       </div>
     </div>
   );
