@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { ChevronLeft } from 'lucide-react';
+import backgroundImage from '../assets/images/A_modern_and_creative_workspace_representi_3.jpg';
+import { typography } from '../styles/typography';
 import Footer from '../components/footer/Footer';
 import { readDocxFile } from '../utils/docxReader';
 
@@ -74,37 +77,56 @@ const BlogPost: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <main className="py-20">
-        <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <header className="text-center mb-16">
-            <div className="mb-6">
-              <span className="inline-block px-3 py-1 rounded-full text-sm bg-neon-green/20 text-neon-green">
-                {blogContent.category}
-              </span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-neon-green to-neon-blue bg-clip-text text-transparent">
-                {blogContent.title}
-              </span>
-            </h1>
-            <div className="flex items-center justify-center space-x-4 text-gray-400">
-              <time>{blogContent.date}</time>
-              <span>•</span>
-              <span>{blogContent.readTime}</span>
-            </div>
-          </header>
+    <main className="min-h-screen text-white relative">
+      <div 
+        className="fixed inset-0 w-full h-full z-0"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          opacity: '0.3'
+        }}
+      />
+      <div className="fixed inset-0 w-full h-full z-10 bg-black/50" />
+      
+      <div className="relative z-20">
+        <div className="min-h-[80vh] pt-24 pb-20">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Link
+              to="/blog"
+              className={`${typography.buttonSecondary} inline-flex items-center mb-12`}
+            >
+              <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+              <span>Back to Blog</span>
+            </Link>
 
-          <div className="prose prose-invert prose-lg max-w-none">
-            <div 
-              className="text-gray-300 leading-relaxed space-y-6"
-              dangerouslySetInnerHTML={{ __html: blogContent.content }}
-            />
+            <article>
+              <div className="mb-8">
+                <span className={`${typography.caption} text-neon-green`}>
+                  {blogContent.category}
+                </span>
+                <time className={`${typography.caption} ml-4`}>
+                  {blogContent.date}
+                </time>
+              </div>
+
+              <h1 className={`${typography.h1} mb-16`}>
+                <span className={typography.gradient}>
+                  {blogContent.title}
+                </span>
+              </h1>
+
+              <div 
+                className={`${typography.body} text-gray-300 leading-relaxed space-y-6`}
+                dangerouslySetInnerHTML={{ __html: blogContent.content }}
+              />
+            </article>
           </div>
-        </article>
-      </main>
+        </div>
+      </div>
       <Footer />
-    </div>
+    </main>
   );
 };
 

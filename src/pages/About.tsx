@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Code, Palette, BarChart3, Users, Target, Zap } from 'lucide-react';
 import backgroundImage from '../assets/images/A_modern_and_creative_workspace_representi_3.jpg';
+import { typography } from '../styles/typography';
 
 interface ExpertiseItem {
   icon: React.ReactNode;
@@ -44,131 +45,102 @@ const About: React.FC = () => {
       
       <div className="relative z-20">
         {/* Hero Section */}
-        <div className="h-[60vh] flex items-center">
+        <div className="min-h-[80vh] flex items-center justify-center pt-24 pb-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green to-neon-blue">
-                Crafting Digital Excellence
+            <h1 className={`${typography.h1} mb-16`}>
+              <span className={typography.gradient}>
+                About 12Stone Designs
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
-              We are more than just a digital agency. We are your partners in creating 
-              exceptional digital experiences that drive real business results.
+            <p className={`${typography.bodyLg} max-w-3xl mx-auto mb-16`}>
+              At 12Stone Designs, we blend creativity with technical expertise to deliver exceptional digital solutions that drive your business forward.
             </p>
-          </div>
-        </div>
-
-        {/* Our Story Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green to-neon-blue">
-                  Our Story
-                </span>
-              </h2>
-              <div className="space-y-4 text-gray-300">
-                <p>
-                  As a fresh and innovative startup, we bring a new perspective to digital design 
-                  and development. While we may be young, our passion for creating exceptional 
-                  digital experiences drives everything we do.
-                </p>
-                <p>
-                  Our name, 12Stone Designs, represents our commitment to building strong, lasting 
-                  foundations for our clients' digital presence. Just as a cornerstone provides 
-                  stability, we aim to be a reliable partner in your digital journey.
-                </p>
-                <p>
-                  We combine fresh ideas with industry best practices to deliver solutions that 
-                  help businesses establish and grow their online presence effectively.
-                </p>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
-                <img 
-                  src="/images/our-story.jpg" 
-                  alt="Our Story" 
-                  className="object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-neon-green to-neon-blue rounded-lg opacity-20 blur-xl" />
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link 
+                to="/contact"
+                className={typography.buttonPrimary}
+              >
+                <span>Get Started</span>
+                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
           </div>
         </div>
 
         {/* Expertise Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green to-neon-blue">
+        <section className="py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className={`${typography.sectionTitle} ${typography.gradient}`}>
               Our Expertise
-            </span>
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {expertise.map((item, index) => (
-              <div 
-                key={index}
-                className="bg-gray-900/30 backdrop-blur-sm rounded-lg p-8 border border-gray-800 hover:border-neon-green/50 transition-all group hover:bg-gray-900/40"
-              >
-                <div className="mb-6">{item.icon}</div>
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-neon-green transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-gray-300">
-                  {item.description}
-                </p>
-              </div>
-            ))}
+            </h2>
+            <p className={typography.sectionSubtitle}>
+              We combine innovative thinking with technical excellence to create solutions that make a difference.
+            </p>
+            
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+              {expertise.map((item, index) => (
+                <div 
+                  key={index}
+                  className="p-8 rounded-lg bg-gray-900/30 backdrop-blur-sm border border-gray-800 hover:border-neon-green/50 transition-all group"
+                >
+                  <div className="mb-6">{item.icon}</div>
+                  <h3 className={`${typography.h5} mb-4`}>{item.title}</h3>
+                  <p className={typography.body}>{item.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
 
         {/* Values Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
-              <div className="grid grid-cols-2 gap-6">
-                <div className="bg-gray-900/30 backdrop-blur-sm rounded-lg p-6 border border-gray-800 hover:bg-gray-900/40">
-                  <Target className="w-8 h-8 text-neon-green mb-4" />
-                  <h3 className="text-xl font-bold text-white mb-2">Precision</h3>
-                  <p className="text-gray-300">Attention to every detail in our work</p>
+        <section className="py-24 bg-black/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className={`${typography.sectionTitle} ${typography.gradient}`}>
+              Our Values
+            </h2>
+            <p className={typography.sectionSubtitle}>
+              Guided by strong principles, we deliver excellence in every project.
+            </p>
+            
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="p-8 rounded-lg bg-gray-900/30 backdrop-blur-sm border border-gray-800 hover:border-neon-green/50 transition-all group">
+                <div className="flex items-start">
+                  <Users className="w-12 h-12 text-neon-green mr-6 flex-shrink-0" />
+                  <div>
+                    <h3 className={`${typography.h5} mb-4`}>Client-Centric Approach</h3>
+                    <p className={typography.body}>
+                      Your success is our priority. We work closely with you to understand your needs and deliver solutions that exceed expectations.
+                    </p>
+                  </div>
                 </div>
-                <div className="bg-gray-900/30 backdrop-blur-sm rounded-lg p-6 border border-gray-800 hover:bg-gray-900/40">
-                  <Users className="w-8 h-8 text-neon-green mb-4" />
-                  <h3 className="text-xl font-bold text-white mb-2">Collaboration</h3>
-                  <p className="text-gray-300">Working together towards success</p>
+              </div>
+              
+              <div className="p-8 rounded-lg bg-gray-900/30 backdrop-blur-sm border border-gray-800 hover:border-neon-green/50 transition-all group">
+                <div className="flex items-start">
+                  <Target className="w-12 h-12 text-neon-green mr-6 flex-shrink-0" />
+                  <div>
+                    <h3 className={`${typography.h5} mb-4`}>Results-Driven</h3>
+                    <p className={typography.body}>
+                      We focus on delivering measurable results that help your business grow and succeed in the digital landscape.
+                    </p>
+                  </div>
                 </div>
-                <div className="bg-gray-900/30 backdrop-blur-sm rounded-lg p-6 border border-gray-800 hover:bg-gray-900/40">
-                  <Zap className="w-8 h-8 text-neon-green mb-4" />
-                  <h3 className="text-xl font-bold text-white mb-2">Innovation</h3>
-                  <p className="text-gray-300">Pushing boundaries in technology</p>
-                </div>
-                <div className="bg-gray-900/30 backdrop-blur-sm rounded-lg p-6 border border-gray-800 hover:bg-gray-900/40">
-                  <Target className="w-8 h-8 text-neon-green mb-4" />
-                  <h3 className="text-xl font-bold text-white mb-2">Excellence</h3>
-                  <p className="text-gray-300">Delivering outstanding results</p>
+              </div>
+              
+              <div className="p-8 rounded-lg bg-gray-900/30 backdrop-blur-sm border border-gray-800 hover:border-neon-green/50 transition-all group">
+                <div className="flex items-start">
+                  <Zap className="w-12 h-12 text-neon-green mr-6 flex-shrink-0" />
+                  <div>
+                    <h3 className={`${typography.h5} mb-4`}>Innovation</h3>
+                    <p className={typography.body}>
+                      We stay ahead of the curve, implementing cutting-edge technologies and creative solutions to solve complex challenges.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="order-1 md:order-2">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green to-neon-blue">
-                  Our Values
-                </span>
-              </h2>
-              <p className="text-gray-300 mb-8">
-                Our values are the cornerstone of everything we do. They guide our decisions, 
-                shape our culture, and define how we work with our clients and each other.
-              </p>
-              <Link
-                to="/contact"
-                className="inline-flex items-center px-6 py-3 bg-neon-green/10 text-neon-green border border-neon-green/50 rounded-lg hover:bg-neon-green/20 transition-all group"
-              >
-                Work With Us
-                <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
           </div>
-        </div>
+        </section>
       </div>
     </main>
   );

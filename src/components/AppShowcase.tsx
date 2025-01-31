@@ -1,35 +1,65 @@
 import React from 'react';
-import { Construction } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { typography } from '../styles/typography';
 
-const AppShowcase = () => {
+interface Application {
+  title: string;
+  description: string;
+  imageUrl: string;
+  link: string;
+}
+
+const applications: Application[] = [
+  {
+    title: 'Web Applications',
+    description: 'Custom web solutions tailored to your business needs, from simple websites to complex web applications.',
+    imageUrl: '/images/web-app.jpg',
+    link: '/contact'
+  },
+  {
+    title: 'Mobile Apps',
+    description: 'Native and cross-platform mobile applications that provide seamless user experiences across all devices.',
+    imageUrl: '/images/mobile-app.jpg',
+    link: '/contact'
+  },
+  {
+    title: 'Desktop Software',
+    description: 'Powerful desktop applications that streamline your business processes and boost productivity.',
+    imageUrl: '/images/desktop-app.jpg',
+    link: '/contact'
+  }
+];
+
+const AppShowcase: React.FC = () => {
   return (
-    <div className="min-h-[60vh] flex flex-col items-center justify-center px-4 py-16">
-      <Construction className="w-16 h-16 text-neon-green mb-6 animate-pulse" />
-      <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-neon-green to-neon-blue bg-clip-text text-transparent">
-        Applications Coming Soon
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 className={`${typography.h1} text-center mb-16`}>
+        <span className={typography.gradient}>
+          Our Applications
+        </span>
       </h1>
-      <p className="text-lg md:text-xl text-gray-300 text-center max-w-2xl">
-        We're working hard to bring you a collection of innovative web applications. 
-        Stay tuned for exciting releases that will showcase our technological capabilities.
+      <p className={`${typography.bodyLg} text-center max-w-3xl mx-auto mb-16`}>
+        Discover our range of innovative applications designed to transform your digital presence and streamline your operations.
       </p>
-      <div className="mt-12 p-6 bg-gray-900/30 backdrop-blur-sm rounded-lg border border-gray-800 hover:border-neon-green/50 transition-all">
-        <p className="text-gray-300">
-          Our upcoming applications will feature:
-        </p>
-        <ul className="mt-4 space-y-2 text-gray-300">
-          <li className="flex items-center">
-            <span className="w-2 h-2 bg-neon-green rounded-full mr-3"></span>
-            Modern, responsive user interfaces
-          </li>
-          <li className="flex items-center">
-            <span className="w-2 h-2 bg-neon-green rounded-full mr-3"></span>
-            Cutting-edge web technologies
-          </li>
-          <li className="flex items-center">
-            <span className="w-2 h-2 bg-neon-green rounded-full mr-3"></span>
-            Innovative solutions for real-world problems
-          </li>
-        </ul>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+        {applications.map((app, index) => (
+          <div
+            key={index}
+            className="p-8 rounded-lg bg-gray-900/30 backdrop-blur-sm border border-gray-800 hover:border-neon-green/50 transition-all group"
+          >
+            <h3 className={`${typography.h5} mb-4`}>{app.title}</h3>
+            <p className={`${typography.body} mb-8`}>{app.description}</p>
+            <Link
+              to={app.link}
+              className={`${typography.buttonPrimary} inline-flex items-center`}
+            >
+              <span>Learn More</span>
+              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        ))}
       </div>
     </div>
   );

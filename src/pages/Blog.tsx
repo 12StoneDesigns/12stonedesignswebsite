@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import BlogCard from '../components/blog/BlogCard';
 import { getAllBlogs } from '../utils/blogUtils';
 import backgroundImage from '../assets/images/A_modern_and_creative_workspace_representi_3.jpg';
+import { typography } from '../styles/typography';
 
 interface BlogPost {
   title: string;
@@ -47,14 +48,14 @@ const Blog = () => {
       <div className="fixed inset-0 w-full h-full z-10 bg-black/50" />
       
       <div className="relative z-20">
-        <div className="pt-24 pb-16">
+        <div className="min-h-[80vh] flex items-center justify-center pt-24 pb-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl font-bold text-center mb-12">
-              <span className="bg-gradient-to-r from-neon-green to-neon-blue bg-clip-text text-transparent">
+            <h1 className={`${typography.h1} text-center mb-16`}>
+              <span className={typography.gradient}>
                 Our Blog
               </span>
             </h1>
-            <p className="text-center text-gray-300 mb-12 max-w-2xl mx-auto">
+            <p className={`${typography.bodyLg} text-center max-w-3xl mx-auto mb-16`}>
               Insights and strategies for building strong, lasting brands. Discover our latest thoughts on branding, design, and digital transformation.
             </p>
 
@@ -67,7 +68,7 @@ const Blog = () => {
                 No blog posts found.
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
                 {blogs.map((blog) => (
                   <BlogCard
                     key={blog.slug}

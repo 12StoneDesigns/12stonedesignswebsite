@@ -1,154 +1,105 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ChevronRight, Palette, Code, BarChart3, Layout, RefreshCw, Zap } from 'lucide-react';
+import backgroundImage from '../assets/images/A_modern_and_creative_workspace_representi_3.jpg';
+import { typography } from '../styles/typography';
 
-const Services = () => {
-  const services = [
-    {
-      title: 'Web Design',
-      description: 'Custom, responsive websites that captivate your audience and drive results.',
-      features: [
-        'Responsive Design',
-        'UI/UX Design',
-        'Mobile-First Approach',
-        'Performance Optimization',
-        'SEO Best Practices',
-        'Cross-Browser Compatibility'
-      ],
-      process: [
-        'Discovery & Planning',
-        'Wireframing',
-        'Design Concepts',
-        'Development',
-        'Testing & Refinement',
-        'Launch & Support'
-      ],
-      link: '/web-design'
-    },
-    {
-      title: 'Web Applications',
-      description: 'Powerful, scalable web applications that streamline your business operations.',
-      features: [
-        'Custom Development',
-        'API Integration',
-        'Database Design',
-        'Authentication & Security',
-        'Cloud Deployment',
-        'Performance Monitoring'
-      ],
-      process: [
-        'Requirements Analysis',
-        'System Architecture',
-        'Development Sprints',
-        'Quality Assurance',
-        'Deployment',
-        'Maintenance & Updates'
-      ],
-      link: '/web-applications'
-    },
-    {
-      title: 'Brand Development',
-      description: 'Comprehensive branding solutions that establish your unique market presence.',
-      features: [
-        'Logo Design',
-        'Brand Guidelines',
-        'Visual Identity',
-        'Brand Strategy',
-        'Marketing Collateral',
-        'Brand Voice & Messaging'
-      ],
-      process: [
-        'Brand Discovery',
-        'Market Research',
-        'Concept Development',
-        'Design Execution',
-        'Brand Guidelines',
-        'Implementation Support'
-      ],
-      link: '/brand-development'
-    },
-    {
-      title: 'Rebranding',
-      description: 'Strategic rebranding services to evolve and strengthen your market position.',
-      features: [
-        'Brand Audit',
-        'Identity Redesign',
-        'Market Repositioning',
-        'Communication Strategy',
-        'Implementation Plan',
-        'Brand Migration'
-      ],
-      process: [
-        'Current Brand Analysis',
-        'Stakeholder Input',
-        'Strategy Development',
-        'Design Evolution',
-        'Rollout Planning',
-        'Launch & Transition'
-      ],
-      link: '/rebranding'
-    }
-  ];
+interface Service {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  link: string;
+}
 
+const services: Service[] = [
+  {
+    icon: <Palette className="w-8 h-8 text-neon-green" />,
+    title: 'Brand Development',
+    description: 'Create a strong, memorable brand identity that resonates with your audience and sets you apart from competitors.',
+    link: '/services/brand-development'
+  },
+  {
+    icon: <Layout className="w-8 h-8 text-neon-green" />,
+    title: 'Web Design',
+    description: 'Custom website designs that combine stunning visuals with intuitive user experiences.',
+    link: '/services/web-design'
+  },
+  {
+    icon: <Code className="w-8 h-8 text-neon-green" />,
+    title: 'Web Applications',
+    description: 'Scalable, feature-rich web applications built with cutting-edge technologies.',
+    link: '/services/web-applications'
+  },
+  {
+    icon: <BarChart3 className="w-8 h-8 text-neon-green" />,
+    title: 'Brand Consulting',
+    description: 'Strategic guidance to help you make informed decisions about your brand's direction and growth.',
+    link: '/services/brand-consulting'
+  },
+  {
+    icon: <RefreshCw className="w-8 h-8 text-neon-green" />,
+    title: 'Rebranding',
+    description: 'Revitalize your brand identity while maintaining the core values that make your business unique.',
+    link: '/services/rebranding'
+  },
+  {
+    icon: <Zap className="w-8 h-8 text-neon-green" />,
+    title: 'Digital Strategy',
+    description: 'Comprehensive digital strategies that align with your business goals and drive growth.',
+    link: '/services/digital-strategy'
+  }
+];
+
+const Services: React.FC = () => {
   return (
-    <div className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neon-green to-neon-blue mb-6">
-            Our Services
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Comprehensive digital solutions tailored to your unique needs. Each service is crafted with 
-            precision, expertise, and a commitment to excellence.
-          </p>
-        </div>
+    <main className="min-h-screen text-white relative">
+      <div 
+        className="fixed inset-0 w-full h-full z-0"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          opacity: '0.3'
+        }}
+      />
+      <div className="fixed inset-0 w-full h-full z-10 bg-black/50" />
+      
+      <div className="relative z-20">
+        <div className="min-h-[80vh] flex items-center justify-center pt-24 pb-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 className={`${typography.h1} text-center mb-16`}>
+              <span className={typography.gradient}>
+                Our Services
+              </span>
+            </h1>
+            <p className={`${typography.bodyLg} text-center max-w-3xl mx-auto mb-16`}>
+              From brand development to web applications, we offer comprehensive solutions to help your business thrive in the digital landscape.
+            </p>
 
-        <div className="space-y-20">
-          {services.map((service, index) => (
-            <div key={index} className="bg-gray-900/50 backdrop-blur-sm rounded-lg border border-gray-800 overflow-hidden">
-              <div className="p-8">
-                <h2 className="text-3xl font-bold text-neon-green mb-4">{service.title}</h2>
-                <p className="text-xl text-gray-300 mb-8">{service.description}</p>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-2xl font-semibold text-white mb-4">Features</h3>
-                    <ul className="space-y-3">
-                      {service.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-start">
-                          <span className="text-neon-green mr-2">•</span>
-                          <span className="text-gray-300">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="text-2xl font-semibold text-white mb-4">Our Process</h3>
-                    <ul className="space-y-3">
-                      {service.process.map((step, stepIndex) => (
-                        <li key={stepIndex} className="flex items-start">
-                          <span className="text-neon-blue mr-2">{stepIndex + 1}.</span>
-                          <span className="text-gray-300">{step}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className="p-8 rounded-lg bg-gray-900/30 backdrop-blur-sm border border-gray-800 hover:border-neon-green/50 transition-all group"
+                >
+                  <div className="mb-6">{service.icon}</div>
+                  <h3 className={`${typography.h5} mb-4`}>{service.title}</h3>
+                  <p className={`${typography.body} mb-8`}>{service.description}</p>
                   <Link
                     to={service.link}
-                    className="inline-flex items-center px-6 py-3 border border-neon-green text-neon-green hover:bg-neon-green hover:text-black transition-all duration-200 rounded-lg"
+                    className={`${typography.buttonPrimary} inline-flex items-center`}
                   >
-                    Learn More
+                    <span>Learn More</span>
+                    <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

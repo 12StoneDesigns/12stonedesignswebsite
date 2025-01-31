@@ -1,6 +1,7 @@
 import React from 'react';
 import AppShowcase from '../components/AppShowcase';
 import backgroundImage from '../assets/images/A_modern_and_creative_workspace_representi_3.jpg';
+import { typography } from '../styles/typography';
 
 const Applications = () => {
   return (
@@ -17,8 +18,10 @@ const Applications = () => {
       />
       <div className="fixed inset-0 w-full h-full z-10 bg-black/50" />
       
-      <div className="relative z-20 pt-24">
-        <AppShowcase />
+      <div className="relative z-20">
+        <div className="min-h-[80vh] flex items-center justify-center pt-24">
+          <AppShowcase />
+        </div>
       </div>
     </main>
   );
