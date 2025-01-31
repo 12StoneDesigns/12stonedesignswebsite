@@ -33,7 +33,7 @@ const services: Service[] = [
   {
     icon: <BarChart3 className="w-8 h-8 text-neon-green" />,
     title: 'Brand Consulting',
-    description: 'Strategic guidance to help you make informed decisions about your brand's direction and growth.',
+    description: 'Strategic guidance to help you make informed decisions about your brand\'s direction and growth.',
     link: '/services/brand-consulting'
   },
   {
