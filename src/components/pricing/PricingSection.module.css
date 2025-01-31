@@ -1,0 +1,105 @@
+.pricingContainer {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.cardStack {
+  position: relative;
+  min-height: 250px;
+  transition: min-height 0.3s ease;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .cardStack {
+    min-height: auto;
+  }
+  
+  .cardStack:hover {
+    min-height: auto;
+  }
+}
+
+.cardStack:hover {
+  min-height: 2000px;
+}
+
+.cardContainer {
+  position: absolute;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .cardContainer {
+    position: relative;
+    margin-bottom: 1rem;
+    visibility: visible !important;
+    transform: none !important;
+  }
+}
+
+.cardContainer:not(:first-child) {
+  visibility: hidden;
+}
+
+.cardStack:hover .cardContainer {
+  visibility: visible;
+}
+
+@media (min-width: 769px) {
+  .cardContainer:nth-child(1) { transform: translateY(0); z-index: 10; }
+  .cardContainer:nth-child(2) { transform: translateY(4px); z-index: 9; }
+  .cardContainer:nth-child(3) { transform: translateY(8px); z-index: 8; }
+  .cardContainer:nth-child(4) { transform: translateY(12px); z-index: 7; }
+  .cardContainer:nth-child(5) { transform: translateY(16px); z-index: 6; }
+
+  .cardStack:hover .cardContainer:nth-child(1) { transform: translateY(0); z-index: 10; }
+  .cardStack:hover .cardContainer:nth-child(2) { transform: translateY(350px); z-index: 9; }
+  .cardStack:hover .cardContainer:nth-child(3) { transform: translateY(700px); z-index: 8; }
+  .cardStack:hover .cardContainer:nth-child(4) { transform: translateY(1050px); z-index: 7; }
+  .cardStack:hover .cardContainer:nth-child(5) { transform: translateY(1400px); z-index: 6; }
+}
+
+.card {
+  background: #111827;
+  min-height: 300px;
+  transition: all 0.3s ease;
+  position: relative;
+  will-change: transform;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .card {
+    min-height: auto;
+    padding-bottom: 4rem;
+  }
+}
+
+/* Highlight effect for hovered card */
+.cardContainer:hover .card {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(0, 255, 170, 0.3);
+}
+
+@media (max-width: 768px) {
+  .cardContainer:hover .card {
+    transform: scale(1.01);
+  }
+}
+
+/* Special highlight for featured card */
+.cardContainer:hover .card[data-highlight="true"] {
+  box-shadow: 0 0 25px rgba(0, 255, 170, 0.4);
+}
+
+/* Feature list */
+.featureList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  margin-top: 0.5rem;
+}
