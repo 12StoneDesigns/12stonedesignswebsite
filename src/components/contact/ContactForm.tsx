@@ -24,7 +24,7 @@ const ContactForm = () => {
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring-neon-green focus:border-neon-green"
+          className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring-neon-green focus:border-neon-green bg-opacity-50"
           placeholder="Your name"
         />
       </div>
@@ -40,7 +40,7 @@ const ContactForm = () => {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring-neon-green focus:border-neon-green"
+          className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring-neon-green focus:border-neon-green bg-opacity-50"
           placeholder="your@email.com"
         />
       </div>
@@ -56,7 +56,7 @@ const ContactForm = () => {
           onChange={handleChange}
           required
           rows={4}
-          className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring-neon-green focus:border-neon-green resize-none"
+          className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring-neon-green focus:border-neon-green resize-none bg-opacity-50"
           placeholder="How can we help you?"
         />
       </div>
