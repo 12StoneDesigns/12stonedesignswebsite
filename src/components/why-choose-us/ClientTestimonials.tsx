@@ -22,18 +22,20 @@ const ClientTestimonials = () => {
 
   return (
     <div className="mb-20">
-      <h2 className="text-3xl font-bold text-center mb-12 text-neon-green">Client Testimonials</h2>
+      <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-[#6F00FF] via-[#00F3FF] to-[#39FF14] bg-[length:300%_300%] bg-clip-text text-transparent animate-gradient-x">
+        Client Testimonials
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {testimonials.map((testimonial, index) => (
           <div 
             key={index}
-            className="bg-gray-900/50 rounded-xl p-6 border border-neon-green/20 relative group hover:border-neon-green/40 transition-all duration-300"
+            className="bg-black/40 backdrop-blur-sm rounded-xl p-6 border border-[#00F3FF] hover:border-[#39FF14] relative group transition-all duration-300"
           >
-            <Quote className="w-8 h-8 text-neon-green/30 absolute -top-4 -left-4 group-hover:text-neon-green/50 transition-all duration-300" />
-            <p className="text-gray-400 mb-6 italic">"{testimonial.quote}"</p>
+            <Quote className="w-8 h-8 text-[#6F00FF] absolute -top-4 -left-4 group-hover:text-[#39FF14] transition-all duration-300" />
+            <p className="text-[#00F3FF] mb-6 italic">"{testimonial.quote}"</p>
             <div>
-              <p className="font-semibold text-white">{testimonial.author}</p>
-              <p className="text-sm text-neon-green">{testimonial.position}</p>
+              <p className="font-semibold text-[#00F3FF]">{testimonial.author}</p>
+              <p className="text-sm text-[#39FF14]">{testimonial.position}</p>
             </div>
           </div>
         ))}

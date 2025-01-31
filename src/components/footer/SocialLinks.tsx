@@ -9,17 +9,18 @@ const SocialLinks: React.FC = () => {
   ];
 
   return (
-    <div className="flex space-x-6">
+    <div className="flex space-x-4">
       {socialLinks.map(({ Icon, href, label }) => (
         <a
           key={label}
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-neon-green transition-colors duration-300"
+          className="text-[#6F00FF] hover:text-[#00F3FF] transition-colors duration-300"
           aria-label={label}
         >
-          <Icon className="w-5 h-5" />
+          <Icon className="w-6 h-6" />
+          <span className="sr-only">{label}</span>
         </a>
       ))}
     </div>

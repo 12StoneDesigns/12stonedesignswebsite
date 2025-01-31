@@ -31,13 +31,13 @@ const CookieBanner = () => {
 
   return (
     <>
-      <div className="fixed bottom-0 left-0 right-0 bg-black border-t border-neon-green/20 p-4 z-50">
+      <div className="fixed bottom-0 left-0 right-0 bg-black/80 backdrop-blur-lg border-t border-[#00F3FF]/30 p-4 z-50">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-gray-300 text-sm flex-1">
+          <div className="text-[#00F3FF] text-sm flex-1">
             <p>
               We use cookies to enhance your browsing experience. By continuing to use our site, 
               you agree to our use of cookies. Read our{' '}
-              <Link to="/cookies" className="text-neon-green hover:underline">
+              <Link to="/cookies" className="text-[#39FF14] hover:text-[#6F00FF] transition-colors duration-300">
                 Cookie Policy
               </Link>{' '}
               to learn more.
@@ -46,14 +46,14 @@ const CookieBanner = () => {
           <div className="flex gap-3 shrink-0">
             <button
               onClick={handleCustomize}
-              className="px-4 py-2 text-gray-300 hover:text-white transition-colors"
+              className="px-4 py-2 text-[#00F3FF] hover:text-[#39FF14] transition-colors duration-300"
             >
               Customize
             </button>
             <button
               onClick={handleAcceptAll}
-              className="px-4 py-2 bg-neon-green/10 text-neon-green border border-neon-green/50 
-                rounded-md hover:bg-neon-green/20 transition-all duration-300"
+              className="px-4 py-2 bg-black/40 text-[#00F3FF] border border-[#00F3FF] hover:border-[#39FF14] hover:text-[#39FF14] 
+                rounded-md transition-all duration-300"
             >
               Accept All
             </button>

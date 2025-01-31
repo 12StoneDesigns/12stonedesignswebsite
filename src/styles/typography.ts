@@ -15,23 +15,23 @@ export const typography = {
   bodySm: "text-base text-gray-300",
 
   // Special text
-  gradient: "bg-gradient-to-r from-neon-green via-neon-blue to-neon-green bg-clip-text text-transparent animate-gradient-x",
-  gradientStatic: "bg-gradient-to-r from-neon-green to-neon-blue bg-clip-text text-transparent",
+  gradient: "bg-gradient-to-r from-[#6F00FF] via-neon-blue to-[#6F00FF] bg-clip-text text-transparent animate-gradient-x",
+  gradientStatic: "bg-gradient-to-r from-[#6F00FF] to-neon-blue bg-clip-text text-transparent",
   caption: "text-sm text-gray-400",
   
   // Interactive elements
-  link: "text-gray-300 hover:text-neon-green transition-colors duration-300",
+  link: "text-gray-300 hover:text-[#6F00FF] transition-colors duration-300",
   button: "text-base font-semibold",
-  buttonPrimary: "group inline-flex items-center justify-center px-8 py-3 bg-neon-green hover:bg-neon-green/90 text-black font-semibold rounded-md transition-all duration-300 transform hover:scale-105",
+  buttonPrimary: "group inline-flex items-center justify-center px-8 py-3 bg-[#6F00FF] hover:bg-[#6F00FF]/90 text-white font-semibold rounded-md transition-all duration-300 transform hover:scale-105",
   buttonSecondary: "group inline-flex items-center justify-center px-8 py-3 bg-transparent border border-neon-blue text-neon-blue hover:bg-neon-blue/10 rounded-md transition-all duration-300 transform hover:scale-105",
-  buttonOutline: "group inline-flex items-center justify-center px-6 py-3 bg-transparent border border-neon-green text-neon-green hover:bg-neon-green/10 rounded-md transition-all duration-300",
+  buttonOutline: "group inline-flex items-center justify-center px-6 py-3 bg-transparent border border-[#6F00FF] text-[#6F00FF] hover:bg-[#6F00FF]/10 rounded-md transition-all duration-300",
   
   // Section headers
   sectionTitle: "text-3xl sm:text-5xl lg:text-6xl font-bold text-center mb-8",
   sectionSubtitle: "text-xl sm:text-2xl text-gray-300 text-center max-w-3xl mx-auto mb-16",
 
   // Card elements
-  cardTitle: "text-xl font-semibold text-white group-hover:text-neon-green transition-colors",
+  cardTitle: "text-xl font-semibold text-white group-hover:text-[#6F00FF] transition-colors",
   cardBody: "text-gray-300",
   
   // Form elements
@@ -43,6 +43,6 @@ export const typography = {
   
   // Footer
   footerTitle: "text-lg font-semibold text-white",
-  footerLink: "text-gray-300 hover:text-neon-green transition-colors",
+  footerLink: "text-gray-300 hover:text-[#6F00FF] transition-colors",
   footerText: "text-gray-300 text-sm",
 } as const;

@@ -28,22 +28,24 @@ const CaseStudies = () => {
 
   return (
     <div className="mb-20">
-      <h2 className="text-3xl font-bold text-center mb-12 text-neon-blue">Success Stories</h2>
+      <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-[#6F00FF] via-[#00F3FF] to-[#39FF14] bg-[length:300%_300%] bg-clip-text text-transparent animate-gradient-x">
+        Success Stories
+      </h2>
       <div className="space-y-12">
         {caseStudies.map((study, index) => (
           <div 
             key={index}
-            className="bg-gray-900/50 rounded-xl p-8 border border-neon-blue/20 hover:border-neon-blue/40 transition-all duration-300"
+            className="bg-black/40 backdrop-blur-sm rounded-xl p-8 border border-[#00F3FF] hover:border-[#39FF14] transition-all duration-300"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-2xl font-semibold text-white mb-2">{study.title}</h3>
-                <p className="text-neon-blue mb-4">{study.client}</p>
-                <p className="text-gray-400 mb-6">{study.description}</p>
+                <h3 className="text-2xl font-semibold text-[#00F3FF] mb-2">{study.title}</h3>
+                <p className="text-[#6F00FF] mb-4">{study.client}</p>
+                <p className="text-[#00F3FF] mb-6">{study.description}</p>
                 <div className="space-y-2">
                   {study.results.map((result, idx) => (
-                    <div key={idx} className="flex items-center text-gray-300">
-                      <ArrowRight className="w-4 h-4 text-neon-blue mr-2" />
+                    <div key={idx} className="flex items-center text-[#00F3FF]">
+                      <ArrowRight className="w-4 h-4 text-[#39FF14] mr-2" />
                       <span>{result}</span>
                     </div>
                   ))}
@@ -55,7 +57,7 @@ const CaseStudies = () => {
                   alt={`${study.title} case study`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 to-neon-green/20 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#6F00FF]/20 to-[#39FF14]/20 pointer-events-none"></div>
               </div>
             </div>
           </div>
