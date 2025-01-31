@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import BlogCard from '../components/blog/BlogCard';
 import { getAllBlogs } from '../utils/blogUtils';
+import backgroundImage from '../assets/images/A_modern_and_creative_workspace_representi_3.jpg';
 
 interface BlogPost {
   title: string;
@@ -32,8 +33,20 @@ const Blog = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <main>
+    <main className="min-h-screen text-white relative">
+      <div 
+        className="fixed inset-0 w-full h-full z-0"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          opacity: '0.3'
+        }}
+      />
+      <div className="fixed inset-0 w-full h-full z-10 bg-black/50" />
+      
+      <div className="relative z-20">
         <div className="pt-24 pb-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl font-bold text-center mb-12">
@@ -41,7 +54,7 @@ const Blog = () => {
                 Our Blog
               </span>
             </h1>
-            <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+            <p className="text-center text-gray-300 mb-12 max-w-2xl mx-auto">
               Insights and strategies for building strong, lasting brands. Discover our latest thoughts on branding, design, and digital transformation.
             </p>
 
@@ -50,7 +63,7 @@ const Blog = () => {
                 <div className="animate-pulse text-neon-green">Loading blogs...</div>
               </div>
             ) : blogs.length === 0 ? (
-              <div className="text-center text-gray-400 py-20">
+              <div className="text-center text-gray-300 py-20">
                 No blog posts found.
               </div>
             ) : (
@@ -70,8 +83,8 @@ const Blog = () => {
             )}
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 };
 

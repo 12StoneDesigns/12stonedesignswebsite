@@ -16,8 +16,8 @@ const BlogCard = ({ title, excerpt, date, readTime, imageUrl, category }: BlogCa
   
   return (
     <Link to={`/blog/${slug}`} className="block h-full">
-      <article className="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-neon-green/50 transition-all duration-300 group h-full flex flex-col">
-        <div className="relative h-48 overflow-hidden bg-gray-800">
+      <article className="bg-gray-900/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-neon-green/50 transition-all duration-300 group h-full flex flex-col">
+        <div className="relative h-48 overflow-hidden">
           <img
             src={imageUrl}
             alt={title}
@@ -33,8 +33,8 @@ const BlogCard = ({ title, excerpt, date, readTime, imageUrl, category }: BlogCa
           <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-neon-green transition-colors line-clamp-2">
             {title}
           </h3>
-          <p className="text-gray-400 mb-4 flex-grow line-clamp-3">{excerpt}</p>
-          <div className="flex items-center text-sm text-gray-500 space-x-4 mt-auto">
+          <p className="text-gray-300 mb-4 flex-grow line-clamp-3">{excerpt}</p>
+          <div className="flex items-center text-sm text-gray-300 space-x-4 mt-auto">
             <span className="flex items-center">
               <Calendar className="w-4 h-4 mr-1" />
               {date}
