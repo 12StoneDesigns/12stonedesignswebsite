@@ -1,108 +1,125 @@
 import React from 'react';
-import { ArrowLeft, RefreshCw, Target, PieChart, Users, Lightbulb, Rocket } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import backgroundImage from '../assets/images/A_modern_and_creative_workspace_representi_3.jpg';
 import ContactSection from '../components/contact/ContactSection';
 
 const Rebranding = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Hero Section */}
-      <div className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-neon-green/10 to-transparent"></div>
-        <div className="max-w-7xl mx-auto relative">
-          <Link to="/" className="inline-flex items-center text-neon-green hover:text-neon-green/80 mb-8">
-            <ArrowLeft className="mr-2 h-5 w-5" />
-            Back to Services
-          </Link>
-          
-          <h1 className="text-4xl sm:text-5xl font-bold text-neon-green mb-6">Rebranding Services</h1>
-          <p className="text-xl mb-8 max-w-3xl">
-            Transform and revitalize your brand identity to meet current market demands. We help established businesses 
-            evolve their brand while maintaining their core values and customer trust.
-          </p>
-        </div>
+    <main className="min-h-screen bg-black text-[#00F3FF] relative">
+      {/* Background Image */}
+      <div 
+        className="fixed inset-0 w-full h-full z-0"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          opacity: '0.3'
+        }}
+      />
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Background Glows */}
+        <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-[#39FF14]/20 rounded-full filter blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/3 left-1/2 -translate-x-1/2 w-72 h-72 bg-[#8A2BE2]/30 rounded-full filter blur-3xl animate-pulse delay-700"></div>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <section className="min-h-[60vh] flex items-center justify-center pt-24 pb-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-4xl sm:text-5xl font-bold mb-8 bg-gradient-to-r from-[#6F00FF] via-[#00F3FF] to-[#39FF14] bg-[length:300%_300%] bg-clip-text text-transparent animate-gradient-x">
+              Rebranding Services
+            </h1>
+            <p className="text-xl max-w-3xl mx-auto mb-12 animate-fade-in">
+              Transform your brand identity and position your business for future success.
+            </p>
+          </div>
+        </section>
+
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <div className="bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-neon-green/50 transition-all">
-            <RefreshCw className="h-8 w-8 text-neon-green mb-4" />
-            <h3 className="text-lg font-semibold mb-2">Brand Audit & Analysis</h3>
-            <p className="text-gray-400">Comprehensive evaluation of your current brand position, strengths, and areas for improvement.</p>
-          </div>
+        <section className="py-16 bg-black/40 backdrop-blur-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Service Cards */}
+              <div className="p-6 rounded-lg bg-black/40 backdrop-blur-sm border border-[#00F3FF] hover:border-[#39FF14] transition-all duration-300 group">
+                <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-[#6F00FF] via-[#00F3FF] to-[#39FF14] bg-clip-text text-transparent group-hover:animate-gradient-x">
+                  Brand Analysis
+                </h3>
+                <p className="text-[#00F3FF] group-hover:text-[#39FF14] transition-colors duration-300">
+                  Comprehensive analysis of your current brand position and market opportunities.
+                </p>
+              </div>
 
-          <div className="bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-neon-green/50 transition-all">
-            <Target className="h-8 w-8 text-neon-green mb-4" />
-            <h3 className="text-lg font-semibold mb-2">Market Repositioning</h3>
-            <p className="text-gray-400">Strategic realignment of your brand to better serve current market demands and opportunities.</p>
-          </div>
+              <div className="p-6 rounded-lg bg-black/40 backdrop-blur-sm border border-[#00F3FF] hover:border-[#39FF14] transition-all duration-300 group">
+                <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-[#6F00FF] via-[#00F3FF] to-[#39FF14] bg-clip-text text-transparent group-hover:animate-gradient-x">
+                  Identity Redesign
+                </h3>
+                <p className="text-[#00F3FF] group-hover:text-[#39FF14] transition-colors duration-300">
+                  Fresh, modern visual identity that maintains brand recognition while moving forward.
+                </p>
+              </div>
 
-          <div className="bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-neon-green/50 transition-all">
-            <PieChart className="h-8 w-8 text-neon-green mb-4" />
-            <h3 className="text-lg font-semibold mb-2">Competition Analysis</h3>
-            <p className="text-gray-400">In-depth research of market competitors to identify unique positioning opportunities.</p>
+              <div className="p-6 rounded-lg bg-black/40 backdrop-blur-sm border border-[#00F3FF] hover:border-[#39FF14] transition-all duration-300 group">
+                <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-[#6F00FF] via-[#00F3FF] to-[#39FF14] bg-clip-text text-transparent group-hover:animate-gradient-x">
+                  Implementation Strategy
+                </h3>
+                <p className="text-[#00F3FF] group-hover:text-[#39FF14] transition-colors duration-300">
+                  Strategic rollout plan to ensure smooth transition and stakeholder buy-in.
+                </p>
+              </div>
+            </div>
           </div>
-
-          <div className="bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-neon-green/50 transition-all">
-            <Users className="h-8 w-8 text-neon-green mb-4" />
-            <h3 className="text-lg font-semibold mb-2">Stakeholder Engagement</h3>
-            <p className="text-gray-400">Inclusive approach ensuring all stakeholders are aligned with the rebranding direction.</p>
-          </div>
-
-          <div className="bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-neon-green/50 transition-all">
-            <Lightbulb className="h-8 w-8 text-neon-green mb-4" />
-            <h3 className="text-lg font-semibold mb-2">Identity Refresh</h3>
-            <p className="text-gray-400">Modern update to visual elements while maintaining brand recognition and trust.</p>
-          </div>
-
-          <div className="bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-neon-green/50 transition-all">
-            <Rocket className="h-8 w-8 text-neon-green mb-4" />
-            <h3 className="text-lg font-semibold mb-2">Launch Strategy</h3>
-            <p className="text-gray-400">Carefully planned rollout of your new brand identity across all channels and touchpoints.</p>
-          </div>
-        </div>
+        </section>
 
         {/* Process Section */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-bold mb-8">Our Rebranding Process</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-neon-green font-semibold mb-2">Discovery & Analysis</h3>
-              <p className="text-gray-400 mb-4">
-                We begin with a thorough analysis of your current brand position, market research, 
-                and stakeholder interviews to understand the need for change.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-neon-green font-semibold mb-2">Strategy Development</h3>
-              <p className="text-gray-400 mb-4">
-                Based on our findings, we develop a comprehensive rebranding strategy that 
-                aligns with your business objectives and market opportunities.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-neon-green font-semibold mb-2">Creative Execution</h3>
-              <p className="text-gray-400 mb-4">
-                Our creative team develops new brand elements that reflect your evolved identity 
-                while maintaining connection with your existing brand equity.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-neon-green font-semibold mb-2">Implementation & Launch</h3>
-              <p className="text-gray-400 mb-4">
-                We guide you through the rollout process, ensuring a smooth transition across 
-                all platforms and touchpoints.
-              </p>
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-[#6F00FF] via-[#00F3FF] to-[#39FF14] bg-[length:300%_300%] bg-clip-text text-transparent animate-gradient-x">
+              Our Rebranding Process
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="p-6 rounded-lg bg-black/30 backdrop-blur-sm border border-[#00F3FF] hover:border-[#39FF14] transition-all duration-300 group">
+                <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-[#6F00FF] via-[#00F3FF] to-[#39FF14] bg-clip-text text-transparent group-hover:animate-gradient-x">
+                  Research & Discovery
+                </h3>
+                <p className="text-[#00F3FF] group-hover:text-[#39FF14] transition-colors duration-300">
+                  Deep dive into your brand's history, values, and market position to inform the rebranding strategy.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-lg bg-black/30 backdrop-blur-sm border border-[#00F3FF] hover:border-[#39FF14] transition-all duration-300 group">
+                <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-[#6F00FF] via-[#00F3FF] to-[#39FF14] bg-clip-text text-transparent group-hover:animate-gradient-x">
+                  Design & Development
+                </h3>
+                <p className="text-[#00F3FF] group-hover:text-[#39FF14] transition-colors duration-300">
+                  Creation of new brand elements while maintaining core brand equity and recognition.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Contact Form */}
-        <ContactSection />
+        {/* CTA Section */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-[#6F00FF] via-[#00F3FF] to-[#39FF14] bg-[length:300%_300%] bg-clip-text text-transparent animate-gradient-x">
+              Ready to Transform Your Brand?
+            </h2>
+            <p className="text-xl max-w-3xl mx-auto mb-8 animate-fade-in">
+              Let's work together to evolve your brand while maintaining its core values and recognition.
+            </p>
+            <Link 
+              to="/contact"
+              className="inline-flex items-center px-6 py-3 rounded-md bg-black/40 text-[#00F3FF] border border-[#00F3FF] hover:border-[#39FF14] hover:text-[#39FF14] transition-all duration-300 group"
+            >
+              <span>Get Started</span>
+              <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </section>
       </div>
-    </div>
+    </main>
   );
 };
 
