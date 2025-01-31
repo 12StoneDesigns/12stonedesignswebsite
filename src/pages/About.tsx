@@ -1,10 +1,16 @@
-import React from 'react';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Code, Palette, BarChart3, Users, Target, Zap } from 'lucide-react';
 import backgroundImage from '../assets/images/A_modern_and_creative_workspace_representi_3.jpg';
 
-const About = () => {
-  const expertise = [
+interface ExpertiseItem {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+const About: React.FC = () => {
+  const expertise: ExpertiseItem[] = [
     {
       icon: <Palette className="w-8 h-8 text-neon-green" />,
       title: 'Creative Design',
@@ -23,35 +29,36 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen text-white">
-      {/* Hero Section */}
-      <div className="relative h-[60vh] overflow-hidden flex items-center">
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url(${backgroundImage})`,
-            opacity: '0.3',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover'
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black" />
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green to-neon-blue">
-              Crafting Digital Excellence
-            </span>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
-            We are more than just a digital agency. We are your partners in creating 
-            exceptional digital experiences that drive real business results.
-          </p>
+    <main className="min-h-screen text-white relative">
+      <div 
+        className="fixed inset-0 w-full h-full z-0"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          opacity: '0.3'
+        }}
+      />
+      <div className="fixed inset-0 w-full h-full z-10 bg-black/50" />
+      
+      <div className="relative z-20">
+        {/* Hero Section */}
+        <div className="h-[60vh] flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green to-neon-blue">
+                Crafting Digital Excellence
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
+              We are more than just a digital agency. We are your partners in creating 
+              exceptional digital experiences that drive real business results.
+            </p>
+          </div>
         </div>
-      </div>
 
-      {/* Our Story Section */}
-      <div className="bg-black">
+        {/* Our Story Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -89,10 +96,8 @@ const About = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Expertise Section */}
-      <div className="bg-gradient-to-b from-gray-900 to-black">
+        {/* Expertise Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green to-neon-blue">
@@ -103,7 +108,7 @@ const About = () => {
             {expertise.map((item, index) => (
               <div 
                 key={index}
-                className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-8 border border-gray-800 hover:border-neon-green/50 transition-all group"
+                className="bg-gray-900/30 backdrop-blur-sm rounded-lg p-8 border border-gray-800 hover:border-neon-green/50 transition-all group hover:bg-gray-900/40"
               >
                 <div className="mb-6">{item.icon}</div>
                 <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-neon-green transition-colors">
@@ -116,30 +121,28 @@ const About = () => {
             ))}
           </div>
         </div>
-      </div>
 
-      {/* Values Section */}
-      <div className="bg-black">
+        {/* Values Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
               <div className="grid grid-cols-2 gap-6">
-                <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-800">
+                <div className="bg-gray-900/30 backdrop-blur-sm rounded-lg p-6 border border-gray-800 hover:bg-gray-900/40">
                   <Target className="w-8 h-8 text-neon-green mb-4" />
                   <h3 className="text-xl font-bold text-white mb-2">Precision</h3>
                   <p className="text-gray-300">Attention to every detail in our work</p>
                 </div>
-                <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-800">
+                <div className="bg-gray-900/30 backdrop-blur-sm rounded-lg p-6 border border-gray-800 hover:bg-gray-900/40">
                   <Users className="w-8 h-8 text-neon-green mb-4" />
                   <h3 className="text-xl font-bold text-white mb-2">Collaboration</h3>
                   <p className="text-gray-300">Working together towards success</p>
                 </div>
-                <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-800">
+                <div className="bg-gray-900/30 backdrop-blur-sm rounded-lg p-6 border border-gray-800 hover:bg-gray-900/40">
                   <Zap className="w-8 h-8 text-neon-green mb-4" />
                   <h3 className="text-xl font-bold text-white mb-2">Innovation</h3>
                   <p className="text-gray-300">Pushing boundaries in technology</p>
                 </div>
-                <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-800">
+                <div className="bg-gray-900/30 backdrop-blur-sm rounded-lg p-6 border border-gray-800 hover:bg-gray-900/40">
                   <Target className="w-8 h-8 text-neon-green mb-4" />
                   <h3 className="text-xl font-bold text-white mb-2">Excellence</h3>
                   <p className="text-gray-300">Delivering outstanding results</p>
@@ -167,7 +170,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
