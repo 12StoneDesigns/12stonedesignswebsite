@@ -38,10 +38,11 @@ export const useContactForm = (initialData: ContactFormData = { name: '', email:
           from_email: formData.email,
           message: formData.message,
           reply_to: formData.email
-        }
+        },
+        EMAILJS_CONFIG.PUBLIC_KEY
       );
 
-      if (response.text === 'OK') {
+      if (response.status === 200) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
         setTimeout(() => {
@@ -54,7 +55,7 @@ export const useContactForm = (initialData: ContactFormData = { name: '', email:
       console.error('Error sending message:', error);
       setStatus('error');
       setError({
-        message: 'Failed to send message. Please try again later or contact us directly at admin@12stonedesigns.com',
+        message: 'Failed to send message. Please try again later or contact us directly at contact@12stonedesigns.com',
         technical: error instanceof Error ? error.message : 'Unknown error occurred'
       });
     }

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Send, Mail, Phone, MapPin } from 'lucide-react';
 import backgroundImage from '../assets/images/A_modern_and_creative_workspace_representi_3.jpg';
+import { useContactForm } from '../hooks/useContactForm';
 
 interface ContactInfo {
   icon: React.ReactNode;
@@ -9,11 +10,13 @@ interface ContactInfo {
 }
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const {
+    formData,
+    status,
+    error,
+    handleSubmit,
+    handleChange
+  } = useContactForm();
 
   const contactInfo: ContactInfo[] = [
     {
@@ -32,19 +35,6 @@ const Contact: React.FC = () => {
       content: 'Bella Vista, AR'
     }
   ];
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log(formData);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
 
   return (
     <main className="min-h-screen text-[#00F3FF] bg-black relative">
@@ -118,12 +108,26 @@ const Contact: React.FC = () => {
                       className="w-full px-4 py-3 bg-black/40 border border-[#00F3FF] rounded-md focus:outline-none focus:border-[#39FF14] text-[#00F3FF] transition-colors duration-300 resize-none"
                     />
                   </div>
+                  
+                  {error && (
+                    <div className="text-red-500 text-sm">
+                      {error.message}
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full px-6 py-3 rounded-md bg-black/40 text-[#00F3FF] border border-[#00F3FF] hover:border-[#39FF14] hover:text-[#39FF14] transition-all duration-300 flex items-center justify-center group"
+                    disabled={status === 'sending'}
+                    className="w-full flex items-center justify-center px-6 py-3 bg-black/40 text-[#00F3FF] border border-[#00F3FF] rounded-md hover:border-[#39FF14] hover:text-[#39FF14] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <span>Send Message</span>
-                    <Send className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-all duration-300" />
+                    {status === 'sending' ? (
+                      'Sending...'
+                    ) : (
+                      <>
+                        Send Message
+                        <Send className="ml-2 h-5 w-5" />
+                      </>
+                    )}
                   </button>
                 </form>
               </div>

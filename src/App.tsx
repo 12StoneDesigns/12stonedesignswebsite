@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -21,8 +21,13 @@ import Cookies from './pages/legal/Cookies';
 import ScrollToTop from './components/ScrollToTop';
 import CookieBanner from './components/cookie/CookieBanner';
 import Services from './pages/Services';
+import { initializeEmailJS } from './config/emailjs';
 
 const App = () => {
+  useEffect(() => {
+    initializeEmailJS();
+  }, []);
+
   return (
     <>
       <ScrollToTop />
