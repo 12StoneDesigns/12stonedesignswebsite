@@ -57,7 +57,7 @@ const ServicesSection = () => {
               <Link
                 key={service.name}
                 to={service.link}
-                className="group relative bg-gray-900/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-800 hover:border-neon-green transition-colors duration-200"
+                className="group relative p-6 border border-neon-green/20 rounded-lg bg-black/40 backdrop-blur-sm hover:bg-black/60 transition-all duration-300"
               >
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0">

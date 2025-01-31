@@ -91,7 +91,7 @@ const ContactSection = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-3">
-            <div className="bg-gray-900/50 backdrop-blur-sm p-8 rounded-lg border border-gray-800">
+            <div className="relative p-8 border border-neon-green/20 rounded-lg bg-black/40 backdrop-blur-sm">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="from_name" className="block text-sm font-medium text-gray-300">

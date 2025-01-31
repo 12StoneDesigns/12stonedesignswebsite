@@ -20,6 +20,7 @@ import Terms from './pages/legal/Terms';
 import Cookies from './pages/legal/Cookies';
 import ScrollToTop from './components/ScrollToTop';
 import CookieBanner from './components/cookie/CookieBanner';
+import Services from './pages/Services';
 
 const App = () => {
   return (
@@ -41,6 +42,7 @@ const App = () => {
             <Route path="web-applications" element={<WebApplications />} />
             <Route path="applications" element={<Applications />} />
             <Route path="why-choose-us" element={<WhyChooseUs />} />
+            <Route path="services" element={<Services />} />
             <Route path="privacy" element={<Privacy />} />
             <Route path="terms" element={<Terms />} />
             <Route path="cookies" element={<Cookies />} />

@@ -59,7 +59,11 @@ const BlogSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {blogPosts.slice(0, 3).map((post) => (
-            <BlogCard key={post.title} {...post} />
+            <BlogCard 
+              key={post.title} 
+              {...post} 
+              className="group relative p-6 border border-neon-green/20 rounded-lg bg-black/40 backdrop-blur-sm hover:bg-black/60 transition-all duration-300"
+            />
           ))}
         </div>
       </div>
