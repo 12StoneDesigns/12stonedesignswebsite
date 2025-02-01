@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SocialLinks from './SocialLinks'; // Assuming SocialLinks is a separate component
+import SocialLinks from './SocialLinks';
 
 const FooterLinks = () => {
   const links = [
@@ -21,7 +21,7 @@ const FooterLinks = () => {
       { name: 'Terms of Service', path: '/terms' },
       { name: 'Cookie Policy', path: '/cookies' }
     ]},
-    { title: 'Connect', items: []} // Assuming SocialLinks will be rendered here
+    { title: 'Connect', items: []}
   ];
 
   return (
