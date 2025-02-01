@@ -17,15 +17,9 @@ const FooterLinks = () => {
       { name: 'Contact', path: '/contact' }
     ]},
     { title: 'Legal', items: [
-<<<<<<< HEAD
       { name: 'Privacy Policy', path: '/privacy' },
       { name: 'Terms of Service', path: '/terms' },
       { name: 'Cookie Policy', path: '/cookies' }
-=======
-      { name: 'Privacy Policy', path: '/legal/privacy' },
-      { name: 'Terms of Service', path: '/legal/terms' },
-      { name: 'Cookie Policy', path: '/legal/cookies' }
->>>>>>> 0ed6327a97b98b462408e5ef6c90004f5baecd30
     ]},
     { title: 'Connect', items: []} // Assuming SocialLinks will be rendered here
   ];
@@ -35,22 +29,19 @@ const FooterLinks = () => {
       {links.map((section, index) => (
         <div key={index}>
           <h3 className="text-lg font-semibold text-[#39FF14] mb-4">{section.title}</h3>
-          {section.title === 'Connect' ? (
-            <SocialLinks />
-          ) : (
-            <ul className="space-y-2">
-              {section.items.map((link, linkIndex) => (
-                <li key={linkIndex}>
-                  <Link
-                    to={link.path}
-                    className="text-[#00F3FF] hover:text-[#6F00FF] transition-colors duration-300"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
+          <ul className="space-y-2">
+            {section.items.map((item, itemIndex) => (
+              <li key={itemIndex}>
+                <Link 
+                  to={item.path}
+                  className="text-[#00F3FF] hover:text-[#6F00FF] transition-colors duration-300"
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+            {section.title === 'Connect' && <SocialLinks />}
+          </ul>
         </div>
       ))}
     </div>
