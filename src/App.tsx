@@ -1,3 +1,10 @@
+/**
+ * @author T. Landon Love
+ * @company 12Stone Designs
+ * @website 12stonedesigns.com
+ * @copyright 2025 12Stone Designs. All rights reserved.
+ */
+
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
@@ -21,6 +28,7 @@ import Cookies from './pages/legal/Cookies';
 import ScrollToTop from './components/ScrollToTop';
 import CookieBanner from './components/cookie/CookieBanner';
 import Services from './pages/Services';
+import { routes } from './config/routes';
 import { initializeEmailJS } from './config/emailjs';
 
 const App = () => {
@@ -33,24 +41,24 @@ const App = () => {
       <ScrollToTop />
       <div id="top">
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path={routes.home} element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="blog" element={<Blog />} />
-            <Route path="blog/:id" element={<BlogPost />} />
-            <Route path="thank-you" element={<ThankYou />} />
-            <Route path="brand-development" element={<BrandDevelopment />} />
-            <Route path="brand-consulting" element={<BrandConsulting />} />
-            <Route path="rebranding" element={<Rebranding />} />
-            <Route path="web-design" element={<WebDesign />} />
-            <Route path="web-applications" element={<WebApplications />} />
-            <Route path="applications" element={<Applications />} />
-            <Route path="why-choose-us" element={<WhyChooseUs />} />
+            <Route path={routes.about} element={<About />} />
+            <Route path={routes.contact} element={<Contact />} />
+            <Route path={routes.blog} element={<Blog />} />
+            <Route path={routes.blogPost} element={<BlogPost />} />
+            <Route path={routes.thankYou} element={<ThankYou />} />
+            <Route path={routes.services.brandDevelopment} element={<BrandDevelopment />} />
+            <Route path={routes.services.brandConsulting} element={<BrandConsulting />} />
+            <Route path={routes.services.rebranding} element={<Rebranding />} />
+            <Route path={routes.services.webDesign} element={<WebDesign />} />
+            <Route path={routes.services.webApplications} element={<WebApplications />} />
+            <Route path={routes.applications} element={<Applications />} />
+            <Route path={routes.whyChooseUs} element={<WhyChooseUs />} />
             <Route path="services" element={<Services />} />
-            <Route path="privacy" element={<Privacy />} />
-            <Route path="terms" element={<Terms />} />
-            <Route path="cookies" element={<Cookies />} />
+            <Route path={routes.legal.privacy} element={<Privacy />} />
+            <Route path={routes.legal.terms} element={<Terms />} />
+            <Route path={routes.legal.cookies} element={<Cookies />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
