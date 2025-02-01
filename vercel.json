@@ -22,5 +22,7 @@
   "github": {
     "enabled": true,
     "silent": false
-  }
+  },
+  "framework": "vite",
+  "outputDirectory": "dist"
 }
