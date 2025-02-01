@@ -17,9 +17,15 @@ const FooterLinks = () => {
       { name: 'Contact', path: '/contact' }
     ]},
     { title: 'Legal', items: [
+<<<<<<< HEAD
       { name: 'Privacy Policy', path: '/privacy' },
       { name: 'Terms of Service', path: '/terms' },
       { name: 'Cookie Policy', path: '/cookies' }
+=======
+      { name: 'Privacy Policy', path: '/legal/privacy' },
+      { name: 'Terms of Service', path: '/legal/terms' },
+      { name: 'Cookie Policy', path: '/legal/cookies' }
+>>>>>>> 0ed6327a97b98b462408e5ef6c90004f5baecd30
     ]},
     { title: 'Connect', items: []} // Assuming SocialLinks will be rendered here
   ];
