@@ -19,6 +19,21 @@ const BrandConsulting = () => {
     }
   };
 
+  // Create a style element for the animation
+  React.useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes moveBackground {
+        0% { background-position: 0 0; }
+        100% { background-position: 60px 60px; }
+      }
+    `;
+    document.head.appendChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-black text-white relative">
       {/* Background Pattern */}
@@ -112,17 +127,6 @@ const BrandConsulting = () => {
           </motion.div>
         </div>
       </div>
-
-      <style jsx global>{`
-        @keyframes moveBackground {
-          0% {
-            background-position: 0 0;
-          }
-          100% {
-            background-position: 60px 60px;
-          }
-        }
-      `}</style>
 
       <ContactSection />
     </div>
