@@ -1,3 +1,10 @@
+/**
+ * @author T. Landon Love
+ * @company 12Stone Designs
+ * @website 12stonedesigns.com
+ * @copyright 2025 12Stone Designs. All rights reserved.
+ */
+
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
