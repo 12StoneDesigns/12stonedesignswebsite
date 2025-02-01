@@ -25,9 +25,9 @@ const FooterLinks = () => {
   ];
 
   return (
-    <div className="grid grid-cols-4 gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       {links.map((section, index) => (
-        <div key={index}>
+        <div key={index} className="flex flex-col">
           <h3 className="text-lg font-semibold text-[#39FF14] mb-4">{section.title}</h3>
           <ul className="space-y-2">
             {section.items.map((item, itemIndex) => (
