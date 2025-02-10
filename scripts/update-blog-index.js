@@ -15,22 +15,27 @@ const __dirname = path.dirname(__filename);
 const blogsDir = path.join(__dirname, '../public/blogs');
 const indexFile = path.join(blogsDir, 'index.json');
 
+// Read existing index file if it exists
+let existingBlogData = {};
+if (fs.existsSync(indexFile)) {
+  const indexContent = fs.readFileSync(indexFile, 'utf8');
+  existingBlogData = JSON.parse(indexContent).reduce((acc, blog) => {
+    acc[blog.filename] = blog.date;
+    return acc;
+  }, {});
+}
+
 // Get all .docx files in the blogs directory
 const blogFiles = fs.readdirSync(blogsDir)
   .filter(file => file.endsWith('.docx'))
   .map(filename => {
-    const stats = fs.statSync(path.join(blogsDir, filename));
-    // Calculate a date within the last month for more realistic blog post dates
-    const today = new Date();
-    const randomDays = Math.floor(Math.random() * 30); // Random day within last 30 days
-    const postDate = new Date(today.getTime() - (randomDays * 24 * 60 * 60 * 1000));
-    
     return {
       title: filename.replace('.docx', ''),
       filename: filename,
-      date: postDate.toISOString()
+      // Use existing date if available, otherwise use current date
+      date: existingBlogData[filename] || new Date().toISOString()
     };
   });
 
-// Write the index file
+// Write the index file, preserving the order
 fs.writeFileSync(indexFile, JSON.stringify(blogFiles, null, 2));
