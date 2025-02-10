@@ -18,6 +18,7 @@ interface BlogContent {
 const blogFileNames: { [key: string]: string } =   {
     "rebranding-how-to-refresh-your-identity-without-losing-your-core": "Rebranding_ How to Refresh Your Identity Without Losing Your Core",
     "the-art-and-strategy-of-web-design-creating-a-digital-presence-that-lasts": "The Art and Strategy of Web Design_ Creating a Digital Presence That Lasts",
+    "the-future-of-branding-how-ai-is-changing-the-way-we-build-identities": "The Future of Branding_ How AI is Changing the Way We Build Identities",
     "the-power-of-purpose-driven-design-building-brands-that-last": "The Power of Purpose-Driven Design_ Building Brands That Last",
     "timeless-branding-designing-for-today-building-for-the-future": "Timeless Branding_ Designing for Today, Building for the Future",
     "why-a-strong-brand-foundation-is-key-to-long-term-success": "Why a Strong Brand Foundation is Key to Long-Term Success"

@@ -19,11 +19,19 @@ const blogPosts = [
     "category": "Web Design"
   },
   {
+    "title": "The Future of Branding_ How AI is Changing the Way We Build Identities",
+    "excerpt": "The Future of Branding: How AI is Changing the Way We Build Identities\n\nBranding has always been about storytelling, connection, and strategy. But in...",
+    "date": "Feb 10, 2025",
+    "readTime": "5 min read",
+    "imageUrl": "https://source.unsplash.com/featured/?purpose,creative&sig=303",
+    "category": "Branding"
+  },
+  {
     "title": "The Power of Purpose-Driven Design_ Building Brands That Last",
     "excerpt": "The Power of Purpose-Driven Design: Building Brands That Last\n\nIn today’s competitive marketplace, standing out is no longer just about being differen...",
     "date": "Feb 10, 2025",
     "readTime": "5 min read",
-    "imageUrl": "https://source.unsplash.com/featured/?purpose,creative&sig=303",
+    "imageUrl": "https://source.unsplash.com/featured/?timeless,modern&sig=404",
     "category": "Branding"
   },
   {
@@ -31,7 +39,7 @@ const blogPosts = [
     "excerpt": "Timeless Branding: Designing for Today, Building for the Future\n\nIn a world where trends rise and fall at lightning speed, it’s easy to get caught up...",
     "date": "Feb 10, 2025",
     "readTime": "5 min read",
-    "imageUrl": "https://source.unsplash.com/featured/?timeless,modern&sig=404",
+    "imageUrl": "https://source.unsplash.com/featured/?foundation,success&sig=505",
     "category": "Branding"
   },
   {
@@ -39,7 +47,7 @@ const blogPosts = [
     "excerpt": "Why a Strong Brand Foundation is Key to Long-Term Success\n\nIn the fast-paced, ever-changing world of business, trends come and go. It’s easy to be swe...",
     "date": "Feb 10, 2025",
     "readTime": "5 min read",
-    "imageUrl": "https://source.unsplash.com/featured/?foundation,success&sig=505",
+    "imageUrl": "https://source.unsplash.com/featured/?rebranding,strategy&sig=101",
     "category": "Branding"
   }
 ];

@@ -23,12 +23,13 @@ export async function getAllBlogs(): Promise<BlogMeta[]> {
       throw new Error('Failed to fetch blogs');
     }
     const files: BlogFile[] = await response.json();
+    console.log('Fetched blog files:', files); // Debug log
 
     // Sort files by date first
     const sortedFiles = [...files].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     
     // Create blog metadata for each file
-    return sortedFiles.map((file, index) => {
+    const blogs = sortedFiles.map((file, index) => {
       const title = file.title;
       const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       
@@ -40,7 +41,7 @@ export async function getAllBlogs(): Promise<BlogMeta[]> {
       // Generate a unique seed based on the title
       const seed = slug.replace(/-/g, '').slice(0, 10);
 
-      return {
+      const blog = {
         title,
         slug,
         excerpt: file.excerpt,
@@ -53,7 +54,11 @@ export async function getAllBlogs(): Promise<BlogMeta[]> {
         imageUrl: `https://picsum.photos/seed/${seed}${index}/800/600`,
         category
       };
+      console.log('Processed blog:', blog); // Debug log
+      return blog;
     });
+
+    return blogs;
   } catch (error) {
     console.error('Error fetching blogs:', error);
     return [];
