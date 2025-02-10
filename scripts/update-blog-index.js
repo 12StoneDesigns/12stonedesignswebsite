@@ -8,6 +8,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import mammoth from 'mammoth';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -20,22 +21,58 @@ let existingBlogData = {};
 if (fs.existsSync(indexFile)) {
   const indexContent = fs.readFileSync(indexFile, 'utf8');
   existingBlogData = JSON.parse(indexContent).reduce((acc, blog) => {
-    acc[blog.filename] = blog.date;
+    acc[blog.filename] = {
+      date: blog.date,
+      excerpt: blog.excerpt,
+      readTime: blog.readTime
+    };
     return acc;
   }, {});
 }
 
-// Get all .docx files in the blogs directory
-const blogFiles = fs.readdirSync(blogsDir)
-  .filter(file => file.endsWith('.docx'))
-  .map(filename => {
-    return {
-      title: filename.replace('.docx', ''),
-      filename: filename,
-      // Use existing date if available, otherwise use current date
-      date: existingBlogData[filename] || new Date().toISOString()
-    };
-  });
+async function extractDocxContent(filePath) {
+  const result = await mammoth.extractRawText({ path: filePath });
+  const text = result.value;
+  return {
+    excerpt: text.slice(0, 150).trim() + '...',
+    readTime: Math.ceil(text.trim().split(/\s+/).length / 200) + ' min read'
+  };
+}
 
-// Write the index file, preserving the order
-fs.writeFileSync(indexFile, JSON.stringify(blogFiles, null, 2));
+// Get all .docx files in the blogs directory
+async function updateBlogIndex() {
+  const blogFiles = fs.readdirSync(blogsDir)
+    .filter(file => file.endsWith('.docx'));
+  
+  const blogData = await Promise.all(blogFiles.map(async filename => {
+    const existingData = existingBlogData[filename];
+    let content = { excerpt: '', readTime: '5 min read' };
+    
+    try {
+      // Always process files to get accurate read times
+      content = await extractDocxContent(path.join(blogsDir, filename));
+      
+      return {
+        title: filename.replace('.docx', ''),
+        filename: filename,
+        date: existingData?.date || new Date().toISOString(),
+        excerpt: existingData?.excerpt || content.excerpt,
+        readTime: existingData?.readTime || content.readTime
+      };
+    } catch (error) {
+      console.error(`Error processing ${filename}:`, error);
+      return {
+        title: filename.replace('.docx', ''),
+        filename: filename,
+        date: existingData?.date || new Date().toISOString(),
+        excerpt: existingData?.excerpt || 'Click to read more...',
+        readTime: existingData?.readTime || '5 min read'
+      };
+    }
+  }));
+
+  // Write the index file
+  fs.writeFileSync(indexFile, JSON.stringify(blogData, null, 2));
+}
+
+updateBlogIndex().catch(console.error);
