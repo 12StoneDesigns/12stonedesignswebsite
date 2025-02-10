@@ -20,10 +20,15 @@ const blogFiles = fs.readdirSync(blogsDir)
   .filter(file => file.endsWith('.docx'))
   .map(filename => {
     const stats = fs.statSync(path.join(blogsDir, filename));
+    // Calculate a date within the last month for more realistic blog post dates
+    const today = new Date();
+    const randomDays = Math.floor(Math.random() * 30); // Random day within last 30 days
+    const postDate = new Date(today.getTime() - (randomDays * 24 * 60 * 60 * 1000));
+    
     return {
       title: filename.replace('.docx', ''),
       filename: filename,
-      date: stats.mtime.toISOString()
+      date: postDate.toISOString()
     };
   });
 

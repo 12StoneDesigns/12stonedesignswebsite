@@ -14,8 +14,6 @@ interface BlogFile {
   date: string;
 }
 
-const API_BASE_URL = 'http://localhost:3001';
-
 export async function getAllBlogs(): Promise<BlogMeta[]> {
   try {
     // Get the list of blog files directly from the public directory
@@ -25,8 +23,11 @@ export async function getAllBlogs(): Promise<BlogMeta[]> {
     }
     const files: BlogFile[] = await response.json();
 
+    // Sort files by date first
+    const sortedFiles = [...files].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    
     // Create blog metadata for each file
-    const blogs: BlogMeta[] = files.map((file, index) => {
+    const blogs: BlogMeta[] = sortedFiles.map((file, index) => {
       const title = file.title;
       const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       
@@ -53,7 +54,7 @@ export async function getAllBlogs(): Promise<BlogMeta[]> {
       };
     });
 
-    return blogs.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    return blogs;
   } catch (error) {
     console.error('Error fetching blogs:', error);
     return [];
