@@ -16,9 +16,9 @@ export const routes = {
   contact: '/contact',
   thankYou: '/thank-you',
   legal: {
-    privacy: '/privacy',
-    terms: '/terms',
-    cookies: '/cookies'
+    privacy: '/legal/privacy',
+    terms: '/legal/terms',
+    cookies: '/legal/cookies'
   }
 };
 

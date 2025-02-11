@@ -10,6 +10,43 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            color: '#39FF14', // neon-green
+            h1: { color: '#00F3FF' }, // neon-blue
+            h2: { color: '#00F3FF' },
+            h3: { color: '#00F3FF' },
+            h4: { color: '#00F3FF' },
+            h5: { color: '#00F3FF' },
+            h6: { color: '#00F3FF' },
+            strong: { color: '#00F3FF' },
+            a: { 
+              color: '#00F3FF',
+              '&:hover': {
+                color: 'rgba(0, 243, 255, 0.8)'
+              }
+            },
+            blockquote: {
+              color: '#39FF14',
+              borderLeftColor: '#00F3FF'
+            },
+            code: { color: '#39FF14' },
+            'code::before': { color: '#39FF14' },
+            'code::after': { color: '#39FF14' },
+            pre: { color: '#39FF14', backgroundColor: '#000000' },
+            li: { color: '#39FF14' },
+            'ul > li::marker': { color: '#00F3FF' },
+            'ol > li::marker': { color: '#00F3FF' },
+            hr: { borderColor: 'rgba(0, 243, 255, 0.3)' },
+            table: { color: '#39FF14' },
+            th: { color: '#39FF14' },
+            td: { color: '#39FF14' },
+            caption: { color: '#39FF14' },
+            figcaption: { color: '#39FF14' }
+          }
+        }
+      },
       colors: {
         'neon-green': '#39FF14',
         'neon-blue': '#00F3FF',
@@ -36,5 +73,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };

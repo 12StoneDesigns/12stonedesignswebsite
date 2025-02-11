@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CookieSettingsPanel from './CookieSettings';
 
-const CookieBanner = () => {
+interface CookieBannerProps {
+  className?: string;
+}
+
+const CookieBanner = ({ className = '' }: CookieBannerProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
@@ -32,7 +36,7 @@ const CookieBanner = () => {
   return (
     <>
     <div 
-      className="fixed bottom-0 left-0 right-0 bg-black/80 backdrop-blur-lg border-t border-[#00F3FF]/30 p-4 z-50"
+      className={`fixed bottom-0 left-0 right-0 bg-black/80 backdrop-blur-lg border-t border-[#00F3FF]/30 p-4 z-[100] ${className}`}
       role="alert"
       aria-live="polite"
     >

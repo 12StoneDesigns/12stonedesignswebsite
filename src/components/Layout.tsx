@@ -38,8 +38,8 @@ const Layout = () => {
       />
       
       {/* Scrollable content */}
-      <div className="relative z-10">
-        <header role="banner">
+      <div className="relative">
+        <header role="banner" className="relative">
           <Navigation />
         </header>
 

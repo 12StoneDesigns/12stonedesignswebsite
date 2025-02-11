@@ -3,11 +3,15 @@ import SocialLinks from './SocialLinks';
 import FooterLinks from './FooterLinks';
 import { Link } from 'react-router-dom';
 
-const Footer = () => {
+interface FooterProps {
+  className?: string;
+}
+
+const Footer = ({ className = '' }: FooterProps) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <section className="py-12 bg-black/40 backdrop-blur-sm border-t border-[#00F3FF]">
+    <section className={`py-12 bg-black/40 backdrop-blur-sm border-t border-[#00F3FF] relative z-50 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="space-y-6">
