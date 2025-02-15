@@ -11,7 +11,7 @@ interface NavLink {
 const navLinks: NavLink[] = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
-  { name: 'Applications', href: '/applications' },
+  { name: 'Portfolio', href: 'https://aetherhack.com' },
   { name: 'Blog', href: '/blog' },
   { name: 'Contact', href: '/contact' },
 ];

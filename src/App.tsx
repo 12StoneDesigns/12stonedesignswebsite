@@ -27,7 +27,6 @@ const BrandConsulting = React.lazy(() => import('./pages/BrandConsulting'));
 const Rebranding = React.lazy(() => import('./pages/Rebranding'));
 const WebDesign = React.lazy(() => import('./pages/WebDesign'));
 const WebApplications = React.lazy(() => import('./pages/WebApplications'));
-const Applications = React.lazy(() => import('./pages/Applications'));
 const WhyChooseUs = React.lazy(() => import('./pages/WhyChooseUs'));
 const Privacy = React.lazy(() => import('./pages/legal/Privacy'));
 const Terms = React.lazy(() => import('./pages/legal/Terms'));
@@ -98,11 +97,6 @@ const App = () => {
             <Route path={routes.services.webApplications} element={
               <Suspense fallback={<LoadingSpinner />}>
                 <WebApplications />
-              </Suspense>
-            } />
-            <Route path={routes.applications} element={
-              <Suspense fallback={<LoadingSpinner />}>
-                <Applications />
               </Suspense>
             } />
             <Route path={routes.whyChooseUs} element={

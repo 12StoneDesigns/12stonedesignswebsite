@@ -55,7 +55,7 @@ export const useContactForm = (initialData: ContactFormData = { name: '', email:
       console.error('Error sending message:', error);
       setStatus('error');
       setError({
-        message: 'Failed to send message. Please try again later or contact us directly at contact@12stonedesigns.com',
+        message: 'Failed to send message. Please try again later or contact us directly at 12stonedesigns@gmail.com',
         technical: error instanceof Error ? error.message : 'Unknown error occurred'
       });
     }

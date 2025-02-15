@@ -30,8 +30,8 @@ const Footer = ({ className = '' }: FooterProps) => {
               <div className="space-y-3">
                 <div className="flex items-center text-[#00F3FF] hover:text-[#6F00FF] transition-colors duration-300">
                   <Mail className="w-5 h-5 mr-2" />
-                  <a href="mailto:contact@12stonedesigns.com" className="text-[#00F3FF] hover:text-[#6F00FF] transition-colors duration-300">
-                    contact@12stonedesigns.com
+                  <a href="mailto:12stonedesigns@gmail.com" className="text-[#00F3FF] hover:text-[#6F00FF] transition-colors duration-300">
+                    12stonedesigns@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center text-[#00F3FF] hover:text-[#6F00FF] transition-colors duration-300">

@@ -8,7 +8,6 @@ export const routes = {
     rebranding: '/rebranding',
     brandConsulting: '/brand-consulting'
   },
-  applications: '/applications',
   whyChooseUs: '/why-choose-us',
   blog: '/blog',
   blogPost: '/blog/:slug',
