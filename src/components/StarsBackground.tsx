@@ -3,20 +3,27 @@
 import React, { useState, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
+import * as THREE from 'three';
 // @ts-ignore
 import * as random from "maath/random/dist/maath-random.esm";
 
-const StarBackground = (props: any) => {
-  const ref: any = useRef();
+interface StarBackgroundProps {
+  [key: string]: any;
+}
+
+const StarBackground: React.FC<StarBackgroundProps> = (props) => {
+  const ref = useRef<THREE.Points>(null);
   const [sphere] = useState(() => {
-    const arr = new Float32Array(5000 * 3); // Increased number of points for better visibility
-    const positions = random.inSphere(arr, { radius: 1.5 }); // Increased radius
+    const arr = new Float32Array(5000 * 3);
+    const positions = random.inSphere(arr, { radius: 1.5 });
     return positions;
   });
 
-  useFrame((state: any, delta: any) => {
-    ref.current.rotation.x -= delta / 10;
-    ref.current.rotation.y -= delta / 15;
+  useFrame((state, delta) => {
+    if (ref.current) {
+      ref.current.rotation.x -= delta / 10;
+      ref.current.rotation.y -= delta / 15;
+    }
   });
 
   return (
@@ -25,7 +32,7 @@ const StarBackground = (props: any) => {
         <PointMaterial
           transparent
           color="#fff"
-          size={0.003} // Increased size for better visibility
+          size={0.003}
           sizeAttenuation={true}
           depthWrite={false}
         />
@@ -34,7 +41,7 @@ const StarBackground = (props: any) => {
   );
 };
 
-const StarsCanvas = () => (
+const StarsCanvas: React.FC = () => (
   <div className="w-full h-full fixed inset-0 z-[2]" style={{ pointerEvents: 'none' }}>
     <Canvas camera={{ position: [0, 0, 1] }}>
       <Suspense fallback={null}>
