@@ -2,8 +2,8 @@ import React from 'react';
 import Hero from '../components/Hero';
 import ServicesSection from '../components/ServicesSection';
 import WhyChooseUsSection from '../components/why-choose-us/WhyChooseUsSection';
+import StarsCanvas from '../components/main/StarsBackground';
 import { typography } from '../styles/typography';
-import backgroundImage from '../assets/images/A_modern_and_creative_workspace_representi_3.jpg';
 
 const Home = () => {
   return (
@@ -12,13 +12,15 @@ const Home = () => {
       <div 
         className="fixed inset-0 w-full h-full z-0"
         style={{
-          backgroundImage: `url(${backgroundImage})`,
+          backgroundImage: 'url("/src/components/main/pngegg(1).png")',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          opacity: '0.3'
+          backgroundSize: 'contain',
+          opacity: '0.15' // Reduced opacity from 0.3 to 0.15
         }}
       />
+      
+      <StarsCanvas />
       
       <div className="relative z-10">
         <Hero />
