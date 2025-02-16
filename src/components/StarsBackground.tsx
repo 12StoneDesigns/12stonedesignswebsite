@@ -9,8 +9,8 @@ import * as random from "maath/random/dist/maath-random.esm";
 const StarBackground = (props: any) => {
   const ref: any = useRef();
   const [sphere] = useState(() => {
-    const arr = new Float32Array(2000 * 3); // Reduced number of points
-    const positions = random.inSphere(arr, { radius: 1.0 }); // Smaller radius
+    const arr = new Float32Array(5000 * 3); // Increased number of points for better visibility
+    const positions = random.inSphere(arr, { radius: 1.5 }); // Increased radius
     return positions;
   });
 
@@ -25,7 +25,7 @@ const StarBackground = (props: any) => {
         <PointMaterial
           transparent
           color="#fff"
-          size={0.002}
+          size={0.003} // Increased size for better visibility
           sizeAttenuation={true}
           depthWrite={false}
         />
@@ -35,7 +35,7 @@ const StarBackground = (props: any) => {
 };
 
 const StarsCanvas = () => (
-  <div className="w-full h-auto fixed inset-0 z-[1]">
+  <div className="w-full h-full fixed inset-0 z-[2]" style={{ pointerEvents: 'none' }}>
     <Canvas camera={{ position: [0, 0, 1] }}>
       <Suspense fallback={null}>
         <StarBackground />

@@ -2,7 +2,7 @@ import React from 'react';
 import Hero from '../components/Hero';
 import ServicesSection from '../components/ServicesSection';
 import WhyChooseUsSection from '../components/why-choose-us/WhyChooseUsSection';
-import StarsCanvas from '../components/main/StarsBackground';
+import StarsCanvas from '../components/StarsBackground';
 import { typography } from '../styles/typography';
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'contain',
-          opacity: '0.15' // Reduced opacity from 0.3 to 0.15
+          opacity: '0.15'
         }}
       />
       
