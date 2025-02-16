@@ -40,5 +40,12 @@ export default defineConfig({
   optimizeDeps: {
     include: ['three', '@react-three/fiber', '@react-three/drei']
   },
-  assetsInclude: ['**/*.docx'] // Include DOCX files as assets
+  assetsInclude: ['**/*.docx', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg'],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '@assets': path.resolve(__dirname, 'src/assets')
+    }
+  },
+  publicDir: 'public'
 });

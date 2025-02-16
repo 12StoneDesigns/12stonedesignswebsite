@@ -32,9 +32,10 @@ const StarBackground: React.FC<StarBackgroundProps> = (props) => {
         <PointMaterial
           transparent
           color="#fff"
-          size={0.003}
+          size={0.002}
           sizeAttenuation={true}
           depthWrite={false}
+          opacity={1}
         />
       </Points>
     </group>
@@ -42,7 +43,7 @@ const StarBackground: React.FC<StarBackgroundProps> = (props) => {
 };
 
 const StarsCanvas: React.FC = () => (
-  <div className="w-full h-full fixed inset-0 z-[2]" style={{ pointerEvents: 'none' }}>
+  <div className="fixed inset-0">
     <Canvas camera={{ position: [0, 0, 1] }}>
       <Suspense fallback={null}>
         <StarBackground />

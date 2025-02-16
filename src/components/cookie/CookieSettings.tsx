@@ -61,7 +61,6 @@ const CookieSettingsPanel: React.FC<CookieSettingsPanelProps> = ({ isOpen, onClo
   }, [isOpen]);
 
   const handleSave = () => {
-    // Save cookie settings to localStorage
     localStorage.setItem('cookieSettings', JSON.stringify(settings));
     onClose();
   };
@@ -70,32 +69,32 @@ const CookieSettingsPanel: React.FC<CookieSettingsPanelProps> = ({ isOpen, onClo
 
   return (
     <div 
-      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+      className="fixed inset-0 bg-black/90 flex items-center justify-center z-modal"
       role="dialog"
       aria-modal="true"
       aria-labelledby="cookie-settings-title"
     >
       <div 
         ref={modalRef}
-        className="bg-black border border-neon-green/20 rounded-lg p-6 max-w-md w-full mx-4"
+        className="bg-black/95 border border-[#00F3FF]/30 rounded-lg p-6 max-w-md w-full mx-4"
         role="document"
         tabIndex={-1}
       >
-        <h2 id="cookie-settings-title" className="text-2xl font-semibold text-white mb-4">Cookie Settings</h2>
+        <h2 id="cookie-settings-title" className="text-2xl font-semibold text-[#00F3FF] mb-4">Cookie Settings</h2>
         
         <div className="space-y-4 mb-6">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-white font-medium">Essential Cookies</h3>
-              <p className="text-gray-400 text-sm">Required for basic functionality</p>
+              <h3 className="text-[#00F3FF] font-medium">Essential Cookies</h3>
+              <p className="text-[#00F3FF]/70 text-sm">Required for basic functionality</p>
             </div>
-            <div className="bg-neon-green/10 text-neon-green px-2 py-1 rounded text-sm">Required</div>
+            <div className="bg-[#39FF14]/10 text-[#39FF14] px-2 py-1 rounded text-sm">Required</div>
           </div>
 
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-white font-medium">Analytics Cookies</h3>
-              <p className="text-gray-400 text-sm">Help us improve our website</p>
+              <h3 className="text-[#00F3FF] font-medium">Analytics Cookies</h3>
+              <p className="text-[#00F3FF]/70 text-sm">Help us improve our website</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input
@@ -105,17 +104,17 @@ const CookieSettingsPanel: React.FC<CookieSettingsPanelProps> = ({ isOpen, onClo
                 onChange={(e) => setSettings(prev => ({ ...prev, analytics: e.target.checked }))}
                 aria-label="Enable analytics cookies"
               />
-              <div className="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer 
+              <div className="w-11 h-6 bg-black/40 peer-focus:outline-none rounded-full peer 
                 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] 
                 after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full 
-                after:h-5 after:w-5 after:transition-all peer-checked:bg-neon-green"></div>
+                after:h-5 after:w-5 after:transition-all peer-checked:bg-[#39FF14]/20"></div>
             </label>
           </div>
 
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-white font-medium">Functional Cookies</h3>
-              <p className="text-gray-400 text-sm">Enable enhanced features</p>
+              <h3 className="text-[#00F3FF] font-medium">Functional Cookies</h3>
+              <p className="text-[#00F3FF]/70 text-sm">Enable enhanced features</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input
@@ -125,10 +124,10 @@ const CookieSettingsPanel: React.FC<CookieSettingsPanelProps> = ({ isOpen, onClo
                 onChange={(e) => setSettings(prev => ({ ...prev, functional: e.target.checked }))}
                 aria-label="Enable functional cookies"
               />
-              <div className="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer 
+              <div className="w-11 h-6 bg-black/40 peer-focus:outline-none rounded-full peer 
                 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] 
                 after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full 
-                after:h-5 after:w-5 after:transition-all peer-checked:bg-neon-green"></div>
+                after:h-5 after:w-5 after:transition-all peer-checked:bg-[#39FF14]/20"></div>
             </label>
           </div>
         </div>
@@ -137,7 +136,7 @@ const CookieSettingsPanel: React.FC<CookieSettingsPanelProps> = ({ isOpen, onClo
           <button
             ref={firstFocusableRef}
             onClick={onClose}
-            className="px-4 py-2 text-gray-300 hover:text-white transition-colors"
+            className="px-4 py-2 text-[#00F3FF] hover:text-[#39FF14] transition-colors duration-300"
             aria-label="Cancel cookie settings"
           >
             Cancel
@@ -145,8 +144,8 @@ const CookieSettingsPanel: React.FC<CookieSettingsPanelProps> = ({ isOpen, onClo
           <button
             ref={lastFocusableRef}
             onClick={handleSave}
-            className="px-4 py-2 bg-neon-green/10 text-neon-green border border-neon-green/50 
-              rounded-md hover:bg-neon-green/20 transition-all duration-300"
+            className="px-4 py-2 bg-black/40 text-[#00F3FF] border border-[#00F3FF] hover:border-[#39FF14] hover:text-[#39FF14] 
+              rounded-md transition-all duration-300"
             aria-label="Save cookie settings"
           >
             Save Settings

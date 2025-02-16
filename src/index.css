@@ -9,13 +9,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Parallax optimizations */
-.parallax-container {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
+/* Base styles */
+html, body {
+  @apply bg-black;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Ensure smooth scrolling on all devices */
@@ -26,6 +24,45 @@ html {
 
 /* Prevent background image from being clipped */
 body {
-  overflow-x: hidden;
+  position: relative;
+}
+
+/* Fixed positioning context */
+#root {
   min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Ensure proper stacking context */
+.z-background {
+  z-index: 0;
+}
+
+.z-stars {
+  z-index: 1;
+}
+
+.z-content {
+  z-index: 2;
+}
+
+.z-modal {
+  z-index: 50;
+}
+
+.z-cookie {
+  z-index: 100;
+}
+
+/* Animation utilities */
+.animate-gradient-x {
+  background-size: 300% 300%;
+  animation: gradient-x 10s ease-in-out infinite;
+}
+
+@keyframes gradient-x {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }

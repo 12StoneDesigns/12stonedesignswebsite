@@ -11,7 +11,7 @@ const Home = () => {
       <WhyChooseUsSection />
       
       {/* CTA Section */}
-      <section className="py-24 bg-black/40 backdrop-blur-sm">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-[#6F00FF] via-[#00F3FF] to-[#39FF14] bg-[length:300%_300%] bg-clip-text text-transparent animate-gradient-x">
             Ready to Transform Your Digital Presence?
@@ -22,7 +22,7 @@ const Home = () => {
           <div className="mt-8">
             <a
               href="/contact"
-              className="inline-flex items-center px-6 py-3 rounded-md bg-black/40 text-[#00F3FF] border border-[#00F3FF] hover:border-[#39FF14] hover:text-[#39FF14] transition-all duration-300"
+              className="inline-flex items-center px-6 py-3 rounded-md text-[#00F3FF] border border-[#00F3FF] hover:border-[#39FF14] hover:text-[#39FF14] transition-all duration-300"
             >
               <span className="font-semibold">Get Started</span>
             </a>

@@ -35,11 +35,11 @@ const CookieBanner = ({ className = '' }: CookieBannerProps) => {
 
   return (
     <>
-    <div 
-      className={`fixed bottom-0 left-0 right-0 bg-black/80 backdrop-blur-lg border-t border-[#00F3FF]/30 p-4 z-[100] ${className}`}
-      role="alert"
-      aria-live="polite"
-    >
+      <div 
+        className={`fixed bottom-0 left-0 right-0 bg-black/90 border-t border-[#00F3FF]/30 p-4 z-cookie ${className}`}
+        role="alert"
+        aria-live="polite"
+      >
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-[#00F3FF] text-sm flex-1">
             <p>

@@ -8,7 +8,7 @@ interface BlogMeta {
   readTime: string;
   imageUrl: string;
   category: string;
-  filename: string;  // Added filename to the interface
+  filename: string;
 }
 
 interface BlogFile {
@@ -24,11 +24,24 @@ interface BlogPost {
   title: string;
 }
 
-function calculateReadTime(excerpt: string): string {
-  const wordsPerMinute = 200;
-  const words = excerpt.split(/\s+/).length;
-  const minutes = Math.ceil(words / wordsPerMinute);
-  return `${minutes} min read`;
+async function calculateReadTime(filename: string): Promise<string> {
+  try {
+    const docxUrl = `/blogs/${filename}`;
+    const content = await readDocxFile(docxUrl);
+    
+    // Strip HTML tags to get just the text
+    const text = content.replace(/<[^>]*>/g, '');
+    
+    // Calculate reading time
+    const wordsPerMinute = 200;
+    const words = text.split(/\s+/).length;
+    const minutes = Math.ceil(words / wordsPerMinute);
+    
+    return `${minutes} min read`;
+  } catch (error) {
+    console.error('Error calculating read time:', error);
+    return '3 min read'; // Fallback default
+  }
 }
 
 function getRandomDate(): string {
@@ -82,24 +95,28 @@ export async function getAllBlogs(): Promise<BlogMeta[]> {
     const files: BlogFile[] = await response.json();
     console.log('Fetched blog files:', files);
 
-    const blogs = files.map((file, index) => {
+    // Process blogs sequentially to calculate accurate read times
+    const blogs = await Promise.all(files.map(async (file, index) => {
       const title = file.title.replace(/_/g, ' ');
       const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       const category = getCategoryFromTitle(title);
+      
+      // Calculate actual read time from full content
+      const readTime = await calculateReadTime(file.filename);
       
       const blog = {
         title,
         slug,
         excerpt: file.excerpt.split('\n')[2] || file.excerpt,
         date: getRandomDate(),
-        readTime: calculateReadTime(file.excerpt),
+        readTime,
         imageUrl: getImageUrlForCategory(category, index),
         category,
-        filename: file.filename // Store the original filename
+        filename: file.filename
       };
       console.log('Processed blog:', blog);
       return blog;
-    });
+    }));
 
     // Sort by date (newest first)
     return blogs.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -118,11 +135,9 @@ export async function readBlogPost(id: string): Promise<BlogPost> {
       throw new Error('Blog post not found');
     }
 
-    // Use the original filename from the blogs directory
     const docxUrl = `/blogs/${blog.filename}`;
     console.log('Attempting to read DOCX file:', docxUrl);
 
-    // Use the docxReader to convert DOCX to HTML
     const content = await readDocxFile(docxUrl);
 
     return {
