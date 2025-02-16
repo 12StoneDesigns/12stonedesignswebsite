@@ -4,6 +4,7 @@ import ServicesSection from '../components/ServicesSection';
 import WhyChooseUsSection from '../components/why-choose-us/WhyChooseUsSection';
 import StarsCanvas from '../components/StarsBackground';
 import { typography } from '../styles/typography';
+import backgroundImage from '../assets/images/pngegg(1).png';
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
       <div 
         className="fixed inset-0 w-full h-full z-0"
         style={{
-          backgroundImage: 'url("/src/components/main/pngegg(1).png")',
+          backgroundImage: `url(${backgroundImage})`,
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'contain',
