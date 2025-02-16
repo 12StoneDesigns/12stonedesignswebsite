@@ -1,8 +1,21 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  server: {
+    fs: {
+      // Allow serving files from one level up to include project root
+      allow: [
+        // Vite's default paths
+        'public',
+        'src',
+        // Add project root to allow access to all project files
+        path.resolve(__dirname)
+      ]
+    }
+  },
   build: {
     rollupOptions: {
       external: [],
@@ -26,5 +39,6 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['three', '@react-three/fiber', '@react-three/drei']
-  }
+  },
+  assetsInclude: ['**/*.docx'] // Include DOCX files as assets
 });
