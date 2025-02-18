@@ -1,6 +1,8 @@
+import React, { useState } from 'react';
 import { Calendar, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import OptimizedImage from '../OptimizedImage';
+import { createOptimizedImage } from '../../utils/imageOptimization';
 
 interface BlogCardProps {
   title: string;
@@ -12,9 +14,23 @@ interface BlogCardProps {
   className?: string;
 }
 
-const BlogCard = ({ title, excerpt, date, readTime, imageUrl, category, className }: BlogCardProps) => {
+const BlogCard: React.FC<BlogCardProps> = ({ 
+  title, 
+  excerpt, 
+  date, 
+  readTime, 
+  imageUrl, 
+  category, 
+  className 
+}) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  
+  // Create optimized image props
+  const optimizedImage = createOptimizedImage(imageUrl, {
+    width: 400,
+    height: 224
+  }, 'blog');
   
   return (
     <Link to={`/blog/${slug}`} className={`block h-full group ${className}`}>
@@ -25,10 +41,11 @@ const BlogCard = ({ title, excerpt, date, readTime, imageUrl, category, classNam
               <div className="w-8 h-8 border-4 border-[#00F3FF] border-t-transparent rounded-full animate-spin"></div>
             </div>
           )}
-          <img
-            src={imageUrl}
-            alt={title}
-            className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-110 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+          <OptimizedImage
+            {...optimizedImage}
+            className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-110 ${
+              imageLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
             onLoad={() => setImageLoaded(true)}
           />
           <div className="absolute top-4 left-4 z-10">
@@ -57,6 +74,23 @@ const BlogCard = ({ title, excerpt, date, readTime, imageUrl, category, classNam
             </span>
           </div>
         </div>
+
+        {/* Schema markup for blog post */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": title,
+            "description": excerpt,
+            "image": imageUrl,
+            "datePublished": date,
+            "timeRequired": readTime,
+            "author": {
+              "@type": "Organization",
+              "name": "12Stone Designs"
+            }
+          })}
+        </script>
       </article>
     </Link>
   );

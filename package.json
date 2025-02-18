@@ -14,7 +14,8 @@
     "dev:all": "concurrently \"vite --host\" \"npm run server\"",
     "update-blogs": "node scripts/update-blog-index.js",
     "generate-blogs": "node scripts/generate-blog-metadata.js",
-    "build": "npm run generate-blogs && npm run update-blogs && vite build",
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "build": "npm run generate-blogs && npm run update-blogs && npm run generate-sitemap && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -47,7 +48,7 @@
     "@types/babel__traverse": "^7.20.6",
     "@types/estree": "^1.0.6",
     "@types/json-schema": "^7.0.15",
-    "@types/node": "^22.12.0",
+    "@types/node": "^22.13.4",
     "@types/prop-types": "^15.7.14",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",

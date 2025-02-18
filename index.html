@@ -10,11 +10,70 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/images/favicon-256x256.ico" />
     <link rel="apple-touch-icon" href="/images/favicon-256x256.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>12Stone Designs - Innovative Web Solutions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="theme-color" content="#6F00FF" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>12Stone Designs - Professional Web Design & Brand Development Services</title>
     <meta name="description" content="12Stone Designs provides cutting-edge web solutions and development services. Transform your digital presence with our innovative technology solutions." />
-    <meta name="keywords" content="web development, technology solutions, software development, 12Stone Designs, innovative solutions" />
+    <meta name="keywords" content="web design services, brand development, web applications, brand consulting, professional web design, custom website design, brand identity consulting, website redesign services, digital branding, web development solutions" />
     <meta name="author" content="12Stone Designs" />
+    <link rel="canonical" href="https://12stonedesigns.com" />
+    
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJD6SF0QTT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MJD6SF0QTT');
+    </script>
+
+    <!-- Hotjar Tracking Code -->
+    <script>
+      (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:5308387,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "12Stone Designs",
+      "url": "https://12stonedesigns.com",
+      "logo": "https://12stonedesigns.com/images/12stone-designs-high-resolution-logo.png",
+      "description": "12Stone Designs provides cutting-edge web solutions and development services. Transform your digital presence with our innovative technology solutions.",
+      "sameAs": [
+        "https://twitter.com/12stonedesigns",
+        "https://www.linkedin.com/company/12stonedesigns",
+        "https://www.facebook.com/12stonedesigns"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "12Stone Designs",
+      "url": "https://12stonedesigns.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://12stonedesigns.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -33,5 +92,18 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+              console.log('ServiceWorker registration successful');
+            })
+            .catch(err => {
+              console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+      }
+    </script>
   </body>
 </html>

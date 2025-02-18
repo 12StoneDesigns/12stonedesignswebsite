@@ -2,6 +2,10 @@ import React from 'react';
 import Hero from '../components/Hero';
 import ServicesSection from '../components/ServicesSection';
 import WhyChooseUsSection from '../components/why-choose-us/WhyChooseUsSection';
+import FAQSection from '../components/faq/FAQSection';
+import CaseStudiesSection from '../components/case-studies/CaseStudiesSection';
+import TestimonialsSection from '../components/testimonials/TestimonialsSection';
+import BlogContentCalendar from '../components/blog/BlogContentCalendar';
 
 const Home = () => {
   return (
@@ -9,6 +13,10 @@ const Home = () => {
       <Hero />
       <ServicesSection />
       <WhyChooseUsSection />
+      <CaseStudiesSection />
+      <TestimonialsSection />
+      <FAQSection />
+      <BlogContentCalendar />
       
       {/* CTA Section */}
       <section className="py-24">

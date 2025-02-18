@@ -1,0 +1,17 @@
+{
+  "name": "12Stone Designs",
+  "short_name": "12Stone",
+  "description": "Professional web design and brand development services",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#6F00FF",
+  "icons": [
+    {
+      "src": "/images/favicon-256x256.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon",
+      "purpose": "any maskable"
+    }
+  ]
+}

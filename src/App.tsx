@@ -11,8 +11,13 @@ import Layout from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
 import CookieBanner from './components/cookie/CookieBanner';
 import LoadingSpinner from './components/LoadingSpinner';
+import ErrorBoundary from './components/ErrorBoundary';
 import { routes } from './config/routes';
 import { initializeEmailJS } from './config/emailjs';
+import { useAnalytics } from './hooks/useAnalytics';
+import { initPerformanceMonitoring } from './utils/performanceMetrics';
+import { initializeUserBehaviorTracking } from './utils/userBehaviorTracking';
+import { trackingConfig, HOTJAR_ID, HOTJAR_VERSION } from './config/tracking';
 
 // Lazy load all routes for better initial load time
 const Home = React.lazy(() => import('./pages/Home'));
@@ -34,12 +39,23 @@ const Cookies = React.lazy(() => import('./pages/legal/Cookies'));
 const Services = React.lazy(() => import('./pages/Services'));
 
 const App = () => {
+  useAnalytics(); // Initialize analytics tracking
+
   useEffect(() => {
+    // Initialize all tracking and monitoring
     initializeEmailJS();
+    
+    if (trackingConfig.features.performanceMonitoring) {
+      initPerformanceMonitoring();
+    }
+    
+    if (trackingConfig.features.userBehaviorTracking) {
+      initializeUserBehaviorTracking(HOTJAR_ID, HOTJAR_VERSION);
+    }
   }, []);
 
   return (
-    <>
+    <ErrorBoundary>
       <ScrollToTop />
       <div id="top">
         <Routes>
@@ -133,7 +149,7 @@ const App = () => {
         </Routes>
       </div>
       <CookieBanner />
-    </>
+    </ErrorBoundary>
   );
 };
 
